@@ -1,0 +1,286 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Кольцова Адриана - резюме</title>
+    <style>
+      @page {
+        size: A4;
+        margin: 13mm 14mm;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        background: #f4f7fa;
+        color: #102033;
+        font-family: Arial, "Segoe UI", sans-serif;
+        font-size: 9.2pt;
+        line-height: 1.28;
+      }
+
+      .page {
+        width: 210mm;
+        min-height: 297mm;
+        margin: 0 auto;
+        background: #ffffff;
+        padding: 13mm 14mm;
+      }
+
+      header {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        gap: 16px;
+        align-items: start;
+        padding-bottom: 12px;
+        border-bottom: 2px solid #d8e8f2;
+      }
+
+      h1,
+      h2,
+      h3,
+      p {
+        margin: 0;
+      }
+
+      h1 {
+        color: #0f2748;
+        font-size: 25pt;
+        line-height: 1;
+        letter-spacing: -0.2pt;
+      }
+
+      .role {
+        margin-top: 6px;
+        color: #0b6094;
+        font-size: 13pt;
+        font-weight: 700;
+      }
+
+      .contacts {
+        margin-top: 9px;
+        color: #4d5b6c;
+        font-size: 8.3pt;
+      }
+
+      .mark {
+        display: grid;
+        width: 42px;
+        height: 42px;
+        place-items: center;
+        border-radius: 8px;
+        background: #0f2748;
+        color: #ffffff;
+        font-weight: 800;
+        font-size: 16pt;
+      }
+
+      .summary {
+        display: grid;
+        grid-template-columns: 5px 1fr;
+        gap: 13px;
+        margin: 13px 0 12px;
+        padding: 12px 14px 12px 0;
+        border-radius: 8px;
+        background: #eef6fb;
+      }
+
+      .summary::before {
+        content: "";
+        display: block;
+        border-radius: 8px 0 0 8px;
+        background: #0b6094;
+      }
+
+      .summary p {
+        align-self: center;
+        font-size: 11pt;
+        line-height: 1.35;
+      }
+
+      section {
+        margin-top: 12px;
+        break-inside: avoid;
+      }
+
+      h2 {
+        margin-bottom: 7px;
+        padding-bottom: 4px;
+        border-bottom: 1px solid #c7dce9;
+        color: #0b6094;
+        font-size: 11pt;
+        line-height: 1;
+        text-transform: uppercase;
+      }
+
+      ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      li {
+        position: relative;
+        margin: 3px 0;
+        padding-left: 13px;
+      }
+
+      li::before {
+        content: "";
+        position: absolute;
+        left: 1px;
+        top: 0.48em;
+        width: 5px;
+        height: 5px;
+        transform: rotate(45deg);
+        background: #0b6094;
+      }
+
+      .job {
+        margin-top: 9px;
+      }
+
+      .job:first-of-type {
+        margin-top: 0;
+      }
+
+      .job-head {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        gap: 12px;
+        align-items: baseline;
+        margin-bottom: 4px;
+      }
+
+      h3 {
+        color: #102033;
+        font-size: 9.8pt;
+      }
+
+      .period {
+        color: #4d5b6c;
+        font-size: 8.5pt;
+        white-space: nowrap;
+      }
+
+      .meta {
+        margin-bottom: 4px;
+        color: #4d5b6c;
+      }
+
+      .skills p,
+      .education p,
+      .courses p {
+        margin-top: 3px;
+      }
+
+      strong {
+        color: #102033;
+      }
+
+      .columns {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 18px;
+      }
+
+      @media screen {
+        body {
+          padding: 24px;
+        }
+
+        .page {
+          box-shadow: 0 18px 60px rgba(15, 39, 72, 0.12);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="page">
+      <header>
+        <div>
+          <h1>Кольцова Адриана</h1>
+          <p class="role">Middle системный аналитик | требования, API, delivery</p>
+          <p class="contacts">t.me/ko1tsovaa | +7 (918) 290-90-25 | adriannakoltzova@gmail.com | Краснодар / удаленно / офис</p>
+        </div>
+        <div class="mark">АК</div>
+      </header>
+
+      <div class="summary">
+        <p>Системный аналитик с 3+ годами опыта. Перевожу бизнес-запросы в требования, API-сценарии и задачи для команды. Помогаю довести фичи от идеи до приемки без потерь в логике.</p>
+      </div>
+
+      <section>
+        <h2>Фокус роли</h2>
+        <ul>
+          <li>Фиксирую цель, роли, ограничения, критерии приемки и открытые вопросы. Убираю двусмысленность до разработки.</li>
+          <li>Описываю API-сценарии, структуры данных, ошибки и ретраи так, чтобы команда могла сразу брать в работу.</li>
+          <li>Готовлю ТЗ, постановки, BPMN/UML, схемы данных и прототипы. Обновляю документацию по ходу изменений.</li>
+          <li>Разбиваю scope на задачи, веду статусы, подсвечиваю риски и собираю договоренности между участниками.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Опыт</h2>
+        <article class="job">
+          <div class="job-head">
+            <h3>ООО «ИНСАП», Москва | Системный аналитик</h3>
+            <span class="period">Август 2024 - настоящее время</span>
+          </div>
+          <p class="meta">Интеграции с банковскими и финансовыми сервисами, автоматизация страховых и операционных процессов, внутренние продукты</p>
+          <ul>
+            <li>Фокус роли: аналитика внутреннего продукта с нуля: от бизнес-запроса до требований, реализации и приемки.</li>
+            <li>Вела аналитику внутреннего продукта с нуля: от бизнес-запроса до требований и приемки.</li>
+            <li>Писала ТЗ и постановки для backend/frontend: логика, сценарии, валидации, статусы и ошибки.</li>
+            <li>Описывала REST-интеграции и data-flow: форматы данных, исключения, ретраи и правила обмена.</li>
+            <li>Координировала delivery-часть: статусы задач, договоренности, блокеры, риски и вопросы к бизнесу.</li>
+            <li>Проверяла сценарии перед приемкой: SQL, Postman, сверка логики и кейсы для QA.</li>
+          </ul>
+        </article>
+
+        <article class="job">
+          <div class="job-head">
+            <h3>ООО «АТМА БРЕНД», Сочи | Системный аналитик</h3>
+            <span class="period">Январь 2023 - Июль 2024</span>
+          </div>
+          <p class="meta">Разработка ПО, интернет-проекты, автоматизация и ИТ-консалтинг</p>
+          <ul>
+            <li>Разбирала процессы клиентов AS IS / TO BE и переводила проблемы в требования к системе.</li>
+            <li>Описывала пользовательские и системные сценарии в BPMN/UML, чтобы команда одинаково понимала логику.</li>
+            <li>Прорабатывала A2A/B2B-интеграции и REST API: запросы, ответы, статусы, ошибки.</li>
+            <li>Готовила user flows и прототипы экранов, фиксировала поведение продукта до разработки.</li>
+            <li>Вела документацию и задачи в Jira/Confluence, проверяла API в Postman, работала с SQL/MySQL.</li>
+          </ul>
+        </article>
+      </section>
+
+      <section class="skills">
+        <h2>Навыки и инструменты</h2>
+        <p><strong>Системный анализ:</strong> AS IS / TO BE, требования, ТЗ, бизнес-правила, User Story, Use Case, критерии приемки.</p>
+        <p><strong>Интеграции и данные:</strong> REST API, Swagger/OpenAPI, Postman, JSON, XML, SQL, MySQL, MS SQL, правила обмена.</p>
+        <p><strong>Моделирование:</strong> BPMN, UML, sequence diagrams, ERD, user flow, прототипы и схемы данных.</p>
+        <p><strong>Project coordination:</strong> backlog, постановка задач, статусы, блокеры, риски, согласования и отчетность.</p>
+        <p><strong>Инструменты:</strong> Jira, Confluence, Agile/Scrum, Figma, Balsamiq, Draw.io, Excel, Google Sheets, ручное тестирование.</p>
+      </section>
+
+      <div class="columns">
+        <section class="education">
+          <h2>Образование</h2>
+          <p>Сочинский государственный университет, 2024 | Бакалавр, Прикладная информатика</p>
+          <p>Профиль: проектирование, внедрение и сопровождение информационных систем, управление процессами и автоматизация.</p>
+        </section>
+
+        <section class="courses">
+          <h2>Дополнительное обучение</h2>
+          <p>Skillbox - «Профессия Системный аналитик»: требования, BPMN/UML, SQL, ER-диаграммы, API и учебные кейсы.</p>
+          <p>Coursera - «GenAI for Business Analysts»: применение GenAI для требований, процессного моделирования, анализа данных и SQL.</p>
+          <p>SQL для аналитиков: подготовка запросов, проверка бизнес-логики, анализ данных и тестовых выборок.</p>
+        </section>
+      </div>
+    </main>
+  </body>
+</html>
