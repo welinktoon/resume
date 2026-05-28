@@ -475,11 +475,18 @@ h2 {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 1px;
-  margin-bottom: var(--section-y);
   border: 1px solid var(--line);
   border-radius: var(--radius);
   overflow: hidden;
   background: var(--line);
+}
+
+.fact-row {
+  margin-bottom: var(--gap-md);
+}
+
+.focus-list {
+  margin-bottom: var(--section-y);
 }
 
 .fact-row article,
