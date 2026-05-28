@@ -413,10 +413,15 @@ h1 span {
 
 .editorial-section {
   display: grid;
-  grid-template-columns: minmax(240px, 0.35fr) minmax(0, 1fr);
-  gap: var(--gap-xl);
+  grid-template-columns: minmax(430px, 0.52fr) minmax(0, 1fr);
+  column-gap: 72px;
+  row-gap: 30px;
   padding: var(--section-y) 0;
   border-top: 1px solid var(--line);
+}
+
+.section-title {
+  min-width: 0;
 }
 
 .section-title span,
@@ -429,7 +434,7 @@ h1 span {
 
 h2 {
   margin: 16px 0 0;
-  font-size: 70px;
+  font-size: clamp(52px, 5.1vw, 70px);
   font-weight: 800;
   line-height: 1.02;
   letter-spacing: 0;
@@ -553,10 +558,15 @@ h2 {
 .skill-lines p {
   margin: 0;
   padding: 26px 30px;
+  border-top: 1px solid transparent;
   background: var(--panel);
   font-size: 17px;
   line-height: 1.55;
   transition: background 180ms ease;
+}
+
+.skill-lines p + p {
+  border-top-color: var(--line);
 }
 
 .skill-lines p:hover {
@@ -632,6 +642,12 @@ h2 {
   }
 }
 
+@media (max-width: 1120px) {
+  .editorial-section {
+    grid-template-columns: 1fr;
+  }
+}
+
 @media (max-width: 980px) {
   :root {
     --page-x: 18px;
@@ -659,7 +675,6 @@ h2 {
   }
 
   .hero,
-  .editorial-section,
   .contacts-section {
     grid-template-columns: 1fr;
   }
