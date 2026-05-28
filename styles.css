@@ -474,11 +474,10 @@ h2 {
 .focus-list {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 1px;
   border: 1px solid var(--line);
   border-radius: var(--radius);
   overflow: hidden;
-  background: var(--line);
+  background: var(--panel);
 }
 
 .fact-row {
@@ -495,6 +494,11 @@ h2 {
   padding: 24px;
   background: var(--panel);
   transition: background 180ms ease;
+}
+
+.fact-row article + article,
+.focus-list article + article {
+  border-left: 1px solid var(--line);
 }
 
 .fact-row article:hover,
