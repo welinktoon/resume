@@ -1,0 +1,703 @@
+<!doctype html>
+<html lang="ru" data-theme="air">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Портфолио - Кольцова Адриана</title>
+    <meta
+      name="description"
+      content="Портфолио: кейс продуктовой рабочей панели с Yandex Tracker, Google Calendar, источниками данных и статусами подключений."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="icon" href="assets/favicon.svg?v=1" type="image/svg+xml" />
+    <link rel="stylesheet" href="styles.css?v=38" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="Кольцова Адриана">
+        <span>АК</span>
+      </a>
+
+      <p class="header-role">Middle системный аналитик</p>
+
+      <nav class="nav" aria-label="Навигация">
+        <a href="index.html">резюме</a>
+      </nav>
+    </header>
+
+    <main id="top" class="portfolio-main">
+      <section class="editorial-section portfolio-section">
+        <div class="section-title">
+          <span>01</span>
+          <h2>Портфолио</h2>
+        </div>
+        <div id="case-work-machine" class="case-block">
+          <div class="case-head">
+            <span class="period">Кейс 1</span>
+            <h3>Продуктовая рабочая панель</h3>
+            <p>
+              Внутренний продукт для аналитика, продакта и менеджера: задачи, встречи,
+              подключения и сигналы по рискам собраны в одном интерфейсе, чтобы быстрее готовиться
+              к статусам, видеть блокеры и не собирать контекст вручную.
+            </p>
+          </div>
+
+          <div class="case-tags" aria-label="Ключевые темы кейса">
+            <span>Yandex Tracker</span>
+            <span>Google Calendar</span>
+            <span>подключения</span>
+            <span>интеграции</span>
+            <span>delivery</span>
+            <span>статусы и блокеры</span>
+            <span>Google Sheets</span>
+          </div>
+
+          <div class="case-points">
+            <article>
+              <h4>Зачем</h4>
+              <p>Убрать ручной обход трекера, календаря, таблиц и почты перед статусами, планированием и разбором блокеров.</p>
+            </article>
+            <article>
+              <h4>Что внутри</h4>
+              <p>Доска задач, календарь встреч, партнерские списки, источники данных, статусы синхронизации и правила подсветки рисков.</p>
+            </article>
+            <article>
+              <h4>Что сделала</h4>
+              <p>Разобрала роли, сценарии, статусы, интеграционные поля, ошибки источников и критерии приемки для MVP.</p>
+            </article>
+          </div>
+
+          <div class="case-metrics" aria-label="Показатели продукта">
+            <article>
+              <strong>-40 мин/день</strong>
+              <p>на ручной сбор статусов: вместо обхода трекера, календаря, таблиц и почты</p>
+            </article>
+            <article>
+              <strong>4 сервиса → 1 экран</strong>
+              <p>меньше переключений между вкладками и меньше потерь рабочего контекста</p>
+            </article>
+            <article>
+              <strong>риски сразу</strong>
+              <p>просрочки, критичные задачи, блокеры и сбои синхронизации видны до созвона</p>
+            </article>
+            <article>
+              <strong>+1-2 ч/нед</strong>
+              <p>возвращаются в работу над задачами вместо сверки источников и ручных апдейтов</p>
+            </article>
+          </div>
+
+          <div class="case-artifacts" aria-label="Артефакты анализа">
+            <a class="case-artifact" href="#case-tz">
+              <span>Артефакт 01 / ТЗ</span>
+              <strong>ТЗ к разработке</strong>
+              <p>Границы MVP, роли, источники, пользовательские истории, правила сигналов, ошибки и критерии приемки.</p>
+            </a>
+            <a class="case-artifact" href="#case-diagrams">
+              <span>Артефакт 02 / схема</span>
+              <strong>Поток данных и сигналов</strong>
+              <p>Схема: источники → синхронизация → нормализация → правила риска → рабочая панель.</p>
+            </a>
+          </div>
+
+          <div class="case-screens" aria-label="Скриншоты продуктовой рабочей панели">
+            <figure class="case-screen case-screen-wide">
+              <button class="case-zoom" type="button" aria-label="Увеличить скриншот: доска задач">
+                <img src="assets/case-work-machine-tracker.png?v=2" alt="Доска задач в продуктовой рабочей панели" />
+              </button>
+              <figcaption>Трекер: доска задач, фильтры по рискам, просрочкам, критичности и отсутствию движения.</figcaption>
+            </figure>
+            <figure class="case-screen">
+              <button class="case-zoom" type="button" aria-label="Увеличить скриншот: календарь встреч">
+                <img src="assets/case-work-machine-calendar.png?v=5" alt="Календарь встреч в продуктовой рабочей панели" />
+              </button>
+              <figcaption>Календарь: недельная сетка встреч, ближайшие события и плотность по рабочим дням.</figcaption>
+            </figure>
+            <figure class="case-screen">
+              <button class="case-zoom" type="button" aria-label="Увеличить скриншот: источники и подключения">
+                <img src="assets/case-work-machine-sources.png?v=2" alt="Источники и подключения продуктовой рабочей панели" />
+              </button>
+              <figcaption>Подключения: Google Sheets, Yandex Tracker, Google Calendar, Gmail и статусы синхронизации.</figcaption>
+            </figure>
+          </div>
+        </div>
+
+        <section id="case-tz" class="case-document" aria-labelledby="case-tz-title">
+          <div class="case-doc-cover">
+            <div>
+              <span class="period">ТЗ к разработке / версия 1.0</span>
+              <h3 id="case-tz-title">Продуктовая рабочая панель</h3>
+            </div>
+            <p>
+              Роль: системный анализ / продукт / delivery. Документ фиксирует MVP, источники данных,
+              API-методы, пользовательские сценарии и критерии приемки.
+            </p>
+          </div>
+
+          <div class="doc-summary" aria-label="Ключевой эффект">
+            <article><strong>-40 мин/день</strong><p>на ручной сбор статусов и сверку источников</p></article>
+            <article><strong>4 сервиса</strong><p>трекер, календарь, таблицы и почта в едином рабочем окне</p></article>
+            <article><strong>риски сразу</strong><p>просрочки, блокеры, критичность и сбои синхронизации</p></article>
+            <article><strong>+1-2 ч/нед</strong><p>возвращаются в delivery вместо ручных апдейтов</p></article>
+          </div>
+
+          <div class="doc-section">
+            <h4><span>01</span> Цель продукта</h4>
+            <p>
+              Создать внутреннюю рабочую панель для продуктовой команды, которая собирает задачи,
+              встречи, источники данных и статусы подключений в одном интерфейсе.
+            </p>
+            <p class="doc-note">
+              Главная задача: сократить ручной обход сервисов и быстрее подсвечивать риски,
+              которые влияют на delivery.
+            </p>
+          </div>
+
+          <div class="doc-section">
+            <h4><span>02</span> Границы MVP</h4>
+            <div class="doc-grid">
+              <article class="doc-card">
+                <h5>Входит в MVP</h5>
+                <ul>
+                  <li>единая сводка по задачам, встречам и источникам;</li>
+                  <li>фильтры по просрочкам, критичности и отсутствию движения;</li>
+                  <li>статусы подключений и понятные ошибки синхронизации;</li>
+                  <li>переходы из панели в исходные объекты: задачу, встречу, таблицу.</li>
+                </ul>
+              </article>
+              <article class="doc-card">
+                <h5>Не входит в MVP</h5>
+                <ul>
+                  <li>редактирование задач и встреч внутри панели;</li>
+                  <li>автоматическая рассылка статусов во внешние чаты;</li>
+                  <li>сложная ролевая модель с правами на каждый виджет;</li>
+                  <li>историческая аналитика за несколько кварталов.</li>
+                </ul>
+              </article>
+            </div>
+          </div>
+
+          <div class="doc-section">
+            <h4><span>03</span> Пользователи</h4>
+            <div class="doc-grid">
+              <article class="doc-card">
+                <h5>Системный аналитик</h5>
+                <ul>
+                  <li>видит задачи, блокеры, статусы и комментарии;</li>
+                  <li>готовит вопросы к бизнесу и разработке;</li>
+                  <li>проверяет готовность сценариев к приемке.</li>
+                </ul>
+              </article>
+              <article class="doc-card">
+                <h5>Продакт / проектный / delivery-менеджер</h5>
+                <ul>
+                  <li>контролирует риски, сроки и загрузку недели;</li>
+                  <li>быстро понимает, где нужен созвон или эскалация;</li>
+                  <li>видит состояние подключений без ручного запроса статусов.</li>
+                </ul>
+              </article>
+            </div>
+          </div>
+
+          <div class="doc-section">
+            <h4><span>04</span> Источники данных</h4>
+            <div class="doc-table-wrap">
+              <table class="doc-table">
+                <thead>
+                  <tr>
+                    <th>Источник</th>
+                    <th>Данные</th>
+                    <th>Ключевые проверки</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Yandex Tracker</td>
+                    <td>задачи, статусы, приоритеты, сроки, комментарии</td>
+                    <td>просрочка, критичность, отсутствие движения, наличие комментариев</td>
+                  </tr>
+                  <tr>
+                    <td>Google Calendar</td>
+                    <td>встречи, плотность недели, ближайшие события</td>
+                    <td>нагрузка по дням, ближайшая встреча, конфликтные окна</td>
+                  </tr>
+                  <tr>
+                    <td>Google Sheets</td>
+                    <td>партнеры, сверки, рабочие списки</td>
+                    <td>актуальность выгрузки, заполненность, ошибки синхронизации</td>
+                  </tr>
+                  <tr>
+                    <td>Gmail</td>
+                    <td>рабочие письма, приглашения, внешние коммуникации</td>
+                    <td>подключение, статус доступа, наличие новых писем</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="doc-section">
+            <h4><span>05</span> Ключевые сущности и поля</h4>
+            <div class="doc-table-wrap">
+              <table class="doc-table doc-table-compact">
+                <thead>
+                  <tr>
+                    <th>Сущность</th>
+                    <th>Обязательные поля</th>
+                    <th>Зачем нужны</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Task</td>
+                    <td>id, title, status, priority, assignee, dueDate, updatedAt, sourceUrl</td>
+                    <td>построение доски, фильтров, просрочек и ссылок в первоисточник</td>
+                  </tr>
+                  <tr>
+                    <td>Meeting</td>
+                    <td>id, title, startsAt, endsAt, organizer, attendeesCount, sourceUrl</td>
+                    <td>недельная сетка, ближайшие события и оценка нагрузки</td>
+                  </tr>
+                  <tr>
+                    <td>Connection</td>
+                    <td>source, status, lastSyncAt, errorCode, errorText, owner</td>
+                    <td>контроль интеграций и понятное объяснение, почему данные не обновились</td>
+                  </tr>
+                  <tr>
+                    <td>RiskSignal</td>
+                    <td>type, severity, reason, relatedEntityId, actionHint</td>
+                    <td>единая подсветка блокеров, просрочек и задач без движения</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="doc-section">
+            <h4><span>06</span> API-методы MVP</h4>
+            <div class="doc-table-wrap">
+              <table class="doc-table doc-table-compact">
+                <thead>
+                  <tr>
+                    <th>Метод</th>
+                    <th>Endpoint</th>
+                    <th>Назначение</th>
+                    <th>Параметры / тело</th>
+                    <th>Ответ</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><span class="method">GET</span></td>
+                    <td>/api/tasks</td>
+                    <td>получить задачи для доски, фильтров и счетчиков</td>
+                    <td>status, assignee, riskOnly, updatedBefore</td>
+                    <td>Task[], meta.syncedAt, meta.total</td>
+                  </tr>
+                  <tr>
+                    <td><span class="method">GET</span></td>
+                    <td>/api/calendar/events</td>
+                    <td>получить встречи недели и ближайшее событие</td>
+                    <td>dateFrom, dateTo, owner</td>
+                    <td>Meeting[], busyDays[], nextEvent</td>
+                  </tr>
+                  <tr>
+                    <td><span class="method">GET</span></td>
+                    <td>/api/connections</td>
+                    <td>показать состояние подключений и ошибки источников</td>
+                    <td>source, status</td>
+                    <td>Connection[], lastSyncAt, errorText</td>
+                  </tr>
+                  <tr>
+                    <td><span class="method post">POST</span></td>
+                    <td>/api/sync/run</td>
+                    <td>запустить ручную синхронизацию источника</td>
+                    <td>{ source, force }</td>
+                    <td>syncId, status, startedAt</td>
+                  </tr>
+                  <tr>
+                    <td><span class="method">GET</span></td>
+                    <td>/api/risks/signals</td>
+                    <td>получить активные сигналы риска</td>
+                    <td>severity, type, entityType</td>
+                    <td>RiskSignal[], actionHint</td>
+                  </tr>
+                  <tr>
+                    <td><span class="method patch">PATCH</span></td>
+                    <td>/api/signals/{id}</td>
+                    <td>обновить статус сигнала</td>
+                    <td>{ status, comment }</td>
+                    <td>RiskSignal</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <p class="doc-note">
+              Общий формат ошибки: errorCode, errorText, source, retryAvailable. Если источник недоступен,
+              интерфейс показывает кэш и время последней успешной синхронизации.
+            </p>
+          </div>
+
+          <div class="doc-section">
+            <h4><span>07</span> Функциональные требования</h4>
+            <div class="doc-table-wrap">
+              <table class="doc-table">
+                <thead>
+                  <tr>
+                    <th>ID</th>
+                    <th>Требование</th>
+                    <th>Критерий приемки</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>FR-01</td>
+                    <td>Показывать сводку по задачам, рискам, встречам и источникам.</td>
+                    <td>Пользователь видит ключевые счетчики без перехода в другие разделы.</td>
+                  </tr>
+                  <tr>
+                    <td>FR-02</td>
+                    <td>Разделять задачи по статусам: бэклог, ожидание, в работе, тестирование, закрыто.</td>
+                    <td>Каждая задача попадает в корректную колонку по статусу из трекера.</td>
+                  </tr>
+                  <tr>
+                    <td>FR-03</td>
+                    <td>Подсвечивать просроченные, критичные и зависшие задачи.</td>
+                    <td>Задачи с рисками имеют визуальный сигнал и доступны через фильтр.</td>
+                  </tr>
+                  <tr>
+                    <td>FR-04</td>
+                    <td>Показывать недельный календарь встреч и ближайшее событие.</td>
+                    <td>Пользователь видит количество встреч, плотный день и расписание недели.</td>
+                  </tr>
+                  <tr>
+                    <td>FR-05</td>
+                    <td>Показывать статусы подключений к источникам.</td>
+                    <td>Для каждого источника виден статус: подключено, ошибка, требуется настройка.</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="doc-section">
+            <h4><span>08</span> Пользовательские истории</h4>
+            <div class="doc-table-wrap">
+              <table class="doc-table">
+                <thead>
+                  <tr>
+                    <th>Роль</th>
+                    <th>История</th>
+                    <th>Ценность</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Аналитик</td>
+                    <td>Я хочу быстро видеть задачи без движения и открытые вопросы, чтобы подготовиться к статусу.</td>
+                    <td>меньше ручной сверки перед созвоном</td>
+                  </tr>
+                  <tr>
+                    <td>Delivery-менеджер</td>
+                    <td>Я хочу видеть риски по срокам и ошибки источников на одном экране, чтобы вовремя эскалировать.</td>
+                    <td>раньше обнаруживаются блокеры</td>
+                  </tr>
+                  <tr>
+                    <td>Продакт</td>
+                    <td>Я хочу видеть встречи недели рядом с задачами, чтобы понимать нагрузку и фокус команды.</td>
+                    <td>проще планировать обсуждения и приемку</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="doc-section">
+            <h4><span>09</span> Основные сценарии</h4>
+            <div class="doc-grid">
+              <article class="doc-card">
+                <h5>Ежедневный обзор</h5>
+                <ul>
+                  <li>пользователь открывает дашборд;</li>
+                  <li>видит риски, встречи, просрочки и сбои источников;</li>
+                  <li>переходит только в те зоны, где нужно действие.</li>
+                </ul>
+              </article>
+              <article class="doc-card">
+                <h5>Подготовка к статусу</h5>
+                <ul>
+                  <li>пользователь фильтрует задачи без движения;</li>
+                  <li>сверяет встречи недели;</li>
+                  <li>формирует список вопросов и следующих действий.</li>
+                </ul>
+              </article>
+            </div>
+          </div>
+
+          <div class="doc-section">
+            <h4><span>10</span> Правила сигналов</h4>
+            <div class="doc-table-wrap">
+              <table class="doc-table">
+                <thead>
+                  <tr>
+                    <th>Сигнал</th>
+                    <th>Условие</th>
+                    <th>Действие в интерфейсе</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Просрочено</td>
+                    <td>dueDate меньше текущей даты, статус не закрывающий</td>
+                    <td>красная метка, попадание в фильтр рисков</td>
+                  </tr>
+                  <tr>
+                    <td>Нет движения</td>
+                    <td>updatedAt старше 7 дней и задача не закрыта</td>
+                    <td>желтая метка и подсказка проверить актуальность</td>
+                  </tr>
+                  <tr>
+                    <td>Ошибка источника</td>
+                    <td>последняя синхронизация завершилась ошибкой или истек токен</td>
+                    <td>статус "требует внимания" и короткий текст причины</td>
+                  </tr>
+                  <tr>
+                    <td>Плотный день</td>
+                    <td>4+ встречи в рабочий день</td>
+                    <td>подсветка дня в календаре и счетчик нагрузки</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="doc-section">
+            <h4><span>11</span> Нефункциональные требования</h4>
+            <ul class="doc-list">
+              <li>Обновление данных не должно блокировать просмотр уже загруженной информации.</li>
+              <li>Ошибки источников должны быть видны пользователю понятным текстом.</li>
+              <li>Интерфейс должен работать на десктопе и планшете без горизонтального скролла страницы.</li>
+              <li>Чувствительные данные в публичных скриншотах должны быть скрыты или заменены.</li>
+            </ul>
+          </div>
+
+          <div class="doc-section">
+            <h4><span>12</span> Статусы и сигналы</h4>
+            <div class="doc-badges">
+              <span>просрочено</span>
+              <span>критично</span>
+              <span>нет движения</span>
+              <span>есть комментарии</span>
+              <span>подключено</span>
+              <span>ошибка синхронизации</span>
+            </div>
+          </div>
+
+          <div class="doc-section">
+            <h4><span>13</span> Критерии приемки</h4>
+            <ul class="doc-list">
+              <li>Панель отображает задачи, встречи и источники на одной странице.</li>
+              <li>Риски по задачам доступны без ручной проверки трекера.</li>
+              <li>Состояние подключений видно до запуска ручной синхронизации.</li>
+              <li>При недоступности источника пользователь получает понятный статус и текст ошибки.</li>
+            </ul>
+          </div>
+        </section>
+
+        <section id="case-diagrams" class="case-diagrams" aria-labelledby="case-diagrams-title">
+          <div class="case-doc-cover">
+            <div>
+              <span class="period">Диаграммы и API</span>
+              <h3 id="case-diagrams-title">Поток данных и сигналы</h3>
+            </div>
+            <p>
+              Схемы показывают, как внешние источники попадают в рабочую панель,
+              нормализуются и превращаются в сигналы для команды.
+            </p>
+          </div>
+
+          <figure class="diagram-panel drawn-diagram" aria-labelledby="sequence-title">
+            <figcaption>
+              <span class="period">Диаграмма</span>
+              <strong id="sequence-title">Sequence diagram: обновление и сигнал</strong>
+            </figcaption>
+            <div class="diagram-scroll">
+              <button class="diagram-zoom" type="button" aria-label="Увеличить диаграмму: sequence diagram">
+              <svg class="diagram-svg sequence-map sequence-detailed" viewBox="0 0 2060 1230" role="img" aria-labelledby="sequence-svg-title sequence-svg-desc">
+                <title id="sequence-svg-title">Sequence diagram синхронизации источников</title>
+                <desc id="sequence-svg-desc">Последовательность вызовов между пользователем, панелью, бэкендом, сервисом синхронизации, внешними источниками и правилами сигналов.</desc>
+                <defs>
+                  <marker id="arrow-seq" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="9" markerHeight="9" orient="auto">
+                    <path d="M 0 0 L 10 5 L 0 10 z" />
+                  </marker>
+                </defs>
+                <rect class="diagram-paper" x="24" y="24" width="2012" height="1182" rx="28" />
+
+                <g class="sequence-participant seq-user">
+                  <rect x="40" y="36" width="144" height="58" rx="12" />
+                  <text x="112" y="72">Пользователь</text>
+                  <rect x="40" y="1124" width="144" height="58" rx="12" />
+                  <text x="112" y="1160">Пользователь</text>
+                </g>
+                <g class="sequence-participant seq-panel">
+                  <rect x="350" y="36" width="144" height="58" rx="12" />
+                  <text x="422" y="72">Панель</text>
+                  <rect x="350" y="1124" width="144" height="58" rx="12" />
+                  <text x="422" y="1160">Панель</text>
+                </g>
+                <g class="sequence-participant seq-backend">
+                  <rect x="680" y="36" width="144" height="58" rx="12" />
+                  <text x="752" y="72">Бэкенд</text>
+                  <rect x="680" y="1124" width="144" height="58" rx="12" />
+                  <text x="752" y="1160">Бэкенд</text>
+                </g>
+                <g class="sequence-participant seq-sync">
+                  <rect x="868" y="36" width="144" height="58" rx="12" />
+                  <text x="940" y="72">Синхронизация</text>
+                  <rect x="868" y="1124" width="144" height="58" rx="12" />
+                  <text x="940" y="1160">Синхронизация</text>
+                </g>
+                <g class="sequence-participant seq-tracker">
+                  <rect x="1118" y="36" width="144" height="58" rx="12" />
+                  <text x="1190" y="72">YandexTracker</text>
+                  <rect x="1118" y="1124" width="144" height="58" rx="12" />
+                  <text x="1190" y="1160">YandexTracker</text>
+                </g>
+                <g class="sequence-participant seq-calendar">
+                  <rect x="1305" y="36" width="144" height="58" rx="12" />
+                  <text x="1377" y="72">GoogleCalendar</text>
+                  <rect x="1305" y="1124" width="144" height="58" rx="12" />
+                  <text x="1377" y="1160">GoogleCalendar</text>
+                </g>
+                <g class="sequence-participant seq-sheets">
+                  <rect x="1492" y="36" width="144" height="58" rx="12" />
+                  <text x="1564" y="72">GoogleSheets</text>
+                  <rect x="1492" y="1124" width="144" height="58" rx="12" />
+                  <text x="1564" y="1160">GoogleSheets</text>
+                </g>
+                <g class="sequence-participant seq-gmail">
+                  <rect x="1679" y="36" width="144" height="58" rx="12" />
+                  <text x="1751" y="72">Gmail</text>
+                  <rect x="1679" y="1124" width="144" height="58" rx="12" />
+                  <text x="1751" y="1160">Gmail</text>
+                </g>
+                <g class="sequence-participant seq-rules">
+                  <rect x="1866" y="36" width="144" height="58" rx="12" />
+                  <text x="1938" y="72">Правила</text>
+                  <rect x="1866" y="1124" width="144" height="58" rx="12" />
+                  <text x="1938" y="1160">Правила</text>
+                </g>
+
+                <line class="sequence-life" x1="112" y1="94" x2="112" y2="1124" />
+                <line class="sequence-life" x1="422" y1="94" x2="422" y2="1124" />
+                <line class="sequence-life" x1="752" y1="94" x2="752" y2="1124" />
+                <line class="sequence-life" x1="940" y1="94" x2="940" y2="1124" />
+                <line class="sequence-life" x1="1190" y1="94" x2="1190" y2="1124" />
+                <line class="sequence-life" x1="1377" y1="94" x2="1377" y2="1124" />
+                <line class="sequence-life" x1="1564" y1="94" x2="1564" y2="1124" />
+                <line class="sequence-life" x1="1751" y1="94" x2="1751" y2="1124" />
+                <line class="sequence-life" x1="1938" y1="94" x2="1938" y2="1124" />
+
+                <path class="sequence-call" d="M 112 138 L 422 138" marker-end="url(#arrow-seq)" />
+                <text class="sequence-label" x="270" y="124">Открывает рабочую панель</text>
+                <path class="sequence-call" d="M 422 184 L 752 184" marker-end="url(#arrow-seq)" />
+                <text class="sequence-label" x="588" y="170">GET /api/tasks</text>
+                <path class="sequence-call" d="M 422 230 L 752 230" marker-end="url(#arrow-seq)" />
+                <text class="sequence-label" x="588" y="216">GET /api/calendar/events</text>
+                <path class="sequence-call" d="M 422 276 L 752 276" marker-end="url(#arrow-seq)" />
+                <text class="sequence-label" x="588" y="262">GET /api/connections</text>
+                <path class="sequence-call" d="M 422 322 L 752 322" marker-end="url(#arrow-seq)" />
+                <text class="sequence-label" x="588" y="308">GET /api/risks/signals</text>
+                <path class="sequence-return" d="M 752 368 L 422 368" marker-end="url(#arrow-seq)" />
+                <text class="sequence-label" x="588" y="354">Задачи, встречи, подключения, риски</text>
+                <path class="sequence-return" d="M 422 414 L 112 414" marker-end="url(#arrow-seq)" />
+                <text class="sequence-label" x="270" y="400">Показывает дашборд</text>
+
+                <path class="sequence-call" d="M 112 460 L 422 460" marker-end="url(#arrow-seq)" />
+                <text class="sequence-label" x="270" y="446">Запускает обновление источника</text>
+                <path class="sequence-call" d="M 422 506 L 752 506" marker-end="url(#arrow-seq)" />
+                <text class="sequence-label" x="588" y="492">POST /api/sync/run</text>
+                <path class="sequence-call" d="M 752 552 L 940 552" marker-end="url(#arrow-seq)" />
+                <text class="sequence-label" x="848" y="538">Создать syncId</text>
+
+                <path class="sequence-call" d="M 940 598 L 1190 598" marker-end="url(#arrow-seq)" />
+                <text class="sequence-label" x="1065" y="584">POST /v3/issues/_search</text>
+                <path class="sequence-return" d="M 1190 644 L 940 644" marker-end="url(#arrow-seq)" />
+                <text class="sequence-label" x="1065" y="630">Задачи, статусы, сроки</text>
+                <path class="sequence-call" d="M 940 690 L 1377 690" marker-end="url(#arrow-seq)" />
+                <text class="sequence-label" x="1160" y="676">events.list</text>
+                <path class="sequence-return" d="M 1377 736 L 940 736" marker-end="url(#arrow-seq)" />
+                <text class="sequence-label" x="1160" y="722">Встречи за период</text>
+                <path class="sequence-call" d="M 940 782 L 1564 782" marker-end="url(#arrow-seq)" />
+                <text class="sequence-label" x="1254" y="768">spreadsheets.values.get</text>
+                <path class="sequence-return" d="M 1564 828 L 940 828" marker-end="url(#arrow-seq)" />
+                <text class="sequence-label" x="1254" y="814">Рабочие списки и сверки</text>
+                <path class="sequence-call" d="M 940 874 L 1751 874" marker-end="url(#arrow-seq)" />
+                <text class="sequence-label" x="1348" y="860">users.messages.list</text>
+                <path class="sequence-return" d="M 1751 920 L 940 920" marker-end="url(#arrow-seq)" />
+                <text class="sequence-label" x="1348" y="906">Письма и приглашения</text>
+
+                <path class="sequence-call" d="M 940 966 L 1938 966" marker-end="url(#arrow-seq)" />
+                <text class="sequence-label" x="1439" y="952">Проверить просрочки, отсутствие движения и ошибки</text>
+                <path class="sequence-return" d="M 1938 1012 L 752 1012" marker-end="url(#arrow-seq)" />
+                <text class="sequence-label" x="1345" y="998">RiskSignal[]</text>
+                <path class="sequence-return" d="M 752 1052 L 422 1052" marker-end="url(#arrow-seq)" />
+                <text class="sequence-label" x="588" y="1038">syncId, статус, время обновления</text>
+                <path class="sequence-return" d="M 422 1092 L 112 1092" marker-end="url(#arrow-seq)" />
+                <text class="sequence-label" x="270" y="1078">Показывает новые риски и статусы</text>
+              </svg>
+              </button>
+            </div>
+          </figure>
+
+          <div class="api-grid" aria-label="API методы панели">
+            <article class="api-card">
+              <span class="method">GET</span>
+              <strong>/api/tasks</strong>
+              <p>Список задач для доски, фильтров, счетчиков и сигналов риска.</p>
+            </article>
+            <article class="api-card">
+              <span class="method">GET</span>
+              <strong>/api/calendar/events</strong>
+              <p>Встречи недели, ближайшее событие и плотность рабочего дня.</p>
+            </article>
+            <article class="api-card">
+              <span class="method">GET</span>
+              <strong>/api/connections</strong>
+              <p>Состояние источников, время синхронизации и понятный текст ошибки.</p>
+            </article>
+            <article class="api-card">
+              <span class="method post">POST</span>
+              <strong>/api/sync/run</strong>
+              <p>Ручной запуск синхронизации источника с возвратом syncId и статуса.</p>
+            </article>
+            <article class="api-card">
+              <span class="method">GET</span>
+              <strong>/api/risks/signals</strong>
+              <p>Активные сигналы по задачам, встречам и источникам.</p>
+            </article>
+            <article class="api-card">
+              <span class="method patch">PATCH</span>
+              <strong>/api/signals/{id}</strong>
+              <p>Обновление статуса сигнала: взято в работу, закрыто, нужен комментарий.</p>
+            </article>
+          </div>
+        </section>
+      </section>
+    </main>
+
+    <div class="image-lightbox" id="image-lightbox" aria-hidden="true">
+      <button class="lightbox-close" type="button" aria-label="Закрыть увеличенное изображение">Закрыть</button>
+      <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" alt="" />
+      <div class="lightbox-diagram" hidden></div>
+    </div>
+
+    <footer class="site-footer">
+      <span>Кольцова Адриана</span>
+      <a href="index.html">Назад к резюме</a>
+    </footer>
+
+    <script src="script.js?v=13"></script>
+  </body>
+</html>

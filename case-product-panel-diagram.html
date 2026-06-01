@@ -1,0 +1,1062 @@
+<!doctype html>
+<html lang="ru" data-theme="air">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Диаграммы - Продуктовая рабочая панель</title>
+    <meta http-equiv="refresh" content="0; url=portfolio.html#case-diagrams" />
+    <link rel="canonical" href="portfolio.html#case-diagrams" />
+    <script>
+      window.location.replace("portfolio.html#case-diagrams");
+    </script>
+    <meta
+      name="description"
+      content="PDF-диаграммы продуктовой рабочей панели: поток данных и жизненный цикл сигнала."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <style>
+      :root {
+        color-scheme: light;
+        --bg: #eef2f6;
+        --ink: #101828;
+        --muted: #475467;
+        --line: #d0d5dd;
+        --paper: #ffffff;
+        --soft: #f2f4f7;
+        --blue: #0b5cff;
+        --blue-soft: #eef4ff;
+        --green: #027a48;
+        --green-soft: #ecfdf3;
+        --amber: #b54708;
+        --amber-soft: #fffaeb;
+        --red: #b42318;
+        --red-soft: #fef3f2;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--ink);
+        font-family: "Manrope", Arial, sans-serif;
+        line-height: 1.45;
+        word-break: normal;
+        overflow-wrap: break-word;
+      }
+
+      .page {
+        width: min(1180px, calc(100% - 32px));
+        margin: 28px auto;
+        padding: 42px;
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        background: var(--paper);
+      }
+
+      header {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) 320px;
+        gap: 28px;
+        align-items: end;
+        padding-bottom: 28px;
+        border-bottom: 2px solid var(--ink);
+      }
+
+      .case-topbar {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        gap: 18px;
+        align-items: center;
+        margin-bottom: 34px;
+      }
+
+      .case-brand {
+        display: grid;
+        width: 50px;
+        height: 50px;
+        place-items: center;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: var(--ink);
+        color: var(--bg);
+        font-size: 20px;
+        font-weight: 800;
+        text-decoration: none;
+      }
+
+      .case-topnav {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
+      .case-topnav a {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 38px;
+        padding: 8px 12px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        color: var(--muted);
+        font-size: 12px;
+        font-weight: 800;
+        text-align: center;
+        text-decoration: none;
+        text-transform: uppercase;
+        white-space: nowrap;
+      }
+
+      .case-topnav a:hover,
+      .case-links a:hover {
+        border-color: var(--blue);
+        color: var(--blue);
+      }
+
+      .label,
+      .kicker,
+      .metric span {
+        color: var(--blue);
+        font-size: 12px;
+        font-weight: 800;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      h1,
+      h2,
+      p {
+        margin-top: 0;
+      }
+
+      h1,
+      h2,
+      h3,
+      .signal-step strong,
+      .metric strong,
+      .api-card strong,
+      .adapter-card strong,
+      .contract strong {
+        text-wrap: balance;
+      }
+
+      p,
+      .note,
+      .diagram-title p,
+      .pill p,
+      .signal-step p,
+      .metric p,
+      .api-card p,
+      .adapter-card p,
+      .contract p {
+        text-wrap: pretty;
+      }
+
+      h1 {
+        max-width: 820px;
+        margin-bottom: 0;
+        font-size: 44px;
+        line-height: 1.04;
+        letter-spacing: 0;
+        text-transform: uppercase;
+        text-wrap: balance;
+      }
+
+      .note {
+        margin: 0;
+        color: var(--muted);
+        font-size: 14px;
+        text-align: right;
+      }
+
+      .diagram-title {
+        display: flex;
+        justify-content: space-between;
+        gap: 24px;
+        align-items: end;
+        margin: 0 0 20px;
+      }
+
+      .diagram-title h2 {
+        margin: 6px 0 0;
+        font-size: 24px;
+        line-height: 1.12;
+      }
+
+      .diagram-title p {
+        max-width: 430px;
+        margin: 0;
+        color: var(--muted);
+        font-size: 13px;
+        text-align: right;
+      }
+
+      .pipeline {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 34px;
+      }
+
+      .stage-card {
+        position: relative;
+        display: grid;
+        grid-template-rows: auto 1fr;
+        min-height: 360px;
+        padding: 18px;
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        background: var(--paper);
+      }
+
+      .stage-card:not(:last-child)::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        right: -35px;
+        width: 34px;
+        height: 2px;
+        background: #667085;
+        transform: translateY(-50%);
+      }
+
+      .stage-card:not(:last-child)::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        right: -35px;
+        width: 0;
+        height: 0;
+        border-top: 7px solid transparent;
+        border-bottom: 7px solid transparent;
+        border-left: 10px solid #667085;
+        transform: translateY(-50%);
+      }
+
+      .stage-head {
+        min-height: 86px;
+        padding-bottom: 16px;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .stage-head h3 {
+        margin: 7px 0 0;
+        font-size: 20px;
+        line-height: 1.12;
+      }
+
+      .stage-body {
+        display: grid;
+        gap: 10px;
+        align-content: start;
+        padding-top: 16px;
+      }
+
+      .pill {
+        padding: 12px;
+        border: 1px solid var(--line);
+        border-radius: 9px;
+        background: var(--soft);
+      }
+
+      .pill strong {
+        display: block;
+        margin-bottom: 5px;
+        font-size: 15px;
+        line-height: 1.12;
+      }
+
+      .pill p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 12px;
+      }
+
+      .source {
+        background: var(--blue-soft);
+        border-color: #84adff;
+      }
+
+      .source .pill {
+        background: var(--paper);
+        border-color: #b2ccff;
+      }
+
+      .process {
+        background: var(--soft);
+      }
+
+      .rules {
+        background: var(--amber-soft);
+        border-color: #fdb022;
+      }
+
+      .rules .pill {
+        background: var(--paper);
+        border-color: #fedf89;
+      }
+
+      .rules .danger {
+        background: var(--red-soft);
+        border-color: #fda29b;
+      }
+
+      .result {
+        background: var(--green-soft);
+        border-color: #75e0a7;
+      }
+
+      .result .pill {
+        background: var(--paper);
+        border-color: #a6f4c5;
+      }
+
+      .signal-flow {
+        display: grid;
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+        gap: 24px;
+        margin-top: 16px;
+      }
+
+      .signal-step {
+        position: relative;
+        min-height: 132px;
+        padding: 16px;
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        background: var(--paper);
+      }
+
+      .signal-step:not(:last-child)::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        right: -24px;
+        width: 24px;
+        height: 2px;
+        background: #667085;
+        transform: translateY(-50%);
+      }
+
+      .signal-step:not(:last-child)::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        right: -24px;
+        width: 0;
+        height: 0;
+        border-top: 7px solid transparent;
+        border-bottom: 7px solid transparent;
+        border-left: 10px solid #667085;
+        transform: translateY(-50%);
+      }
+
+      .signal-step span {
+        display: grid;
+        width: 28px;
+        height: 28px;
+        place-items: center;
+        margin-bottom: 14px;
+        border-radius: 50%;
+        background: var(--ink);
+        color: var(--paper);
+        font-size: 12px;
+        font-weight: 800;
+      }
+
+      .signal-step strong {
+        display: block;
+        margin-bottom: 6px;
+        font-size: 16px;
+        line-height: 1.1;
+      }
+
+      .signal-step p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 12px;
+      }
+
+      .sequence-diagram {
+        display: grid;
+        gap: 1px;
+        overflow-x: auto;
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        background: var(--line);
+      }
+
+      .sequence-title,
+      .sequence-lanes,
+      .sequence-row {
+        display: grid;
+        grid-template-columns: 42px repeat(5, minmax(148px, 1fr));
+        min-width: 840px;
+      }
+
+      .sequence-title {
+        grid-template-columns: 1fr;
+        gap: 6px;
+        min-width: 0;
+        padding: 18px;
+        background: var(--paper);
+      }
+
+      .sequence-title strong {
+        font-size: 20px;
+        line-height: 1.12;
+        text-transform: uppercase;
+      }
+
+      .sequence-lanes span,
+      .sequence-row > * {
+        min-width: 0;
+        padding: 12px;
+        background: var(--paper);
+      }
+
+      .sequence-lanes {
+        color: var(--blue);
+        font-size: 12px;
+        font-weight: 900;
+        text-align: center;
+        text-transform: uppercase;
+      }
+
+      .sequence-lanes::before {
+        content: "";
+        background: var(--soft);
+      }
+
+      .sequence-row span {
+        display: grid;
+        place-items: center;
+        background: var(--ink);
+        color: var(--paper);
+        font-size: 12px;
+        font-weight: 900;
+      }
+
+      .sequence-row p {
+        position: relative;
+        min-height: 58px;
+        margin: 0;
+        color: var(--muted);
+        font-size: 12px;
+        line-height: 1.4;
+      }
+
+      .sequence-row p:not(:empty)::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: -7px;
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: var(--blue);
+        transform: translateY(-50%);
+      }
+
+      .metrics {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 14px;
+        margin-top: 0;
+      }
+
+      .metric {
+        padding: 16px;
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        background: var(--soft);
+      }
+
+      .metric strong {
+        display: block;
+        margin: 8px 0;
+        font-size: 24px;
+        line-height: 1;
+      }
+
+      .metric p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 13px;
+      }
+
+      .api-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 12px;
+        margin-top: 16px;
+      }
+
+      .api-card {
+        min-width: 0;
+        padding: 15px;
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        background: var(--paper);
+      }
+
+      .api-card strong {
+        display: block;
+        margin: 10px 0 8px;
+        font-size: 16px;
+        line-height: 1.12;
+        overflow-wrap: anywhere;
+      }
+
+      .api-card p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 12px;
+      }
+
+      .method {
+        display: inline-flex;
+        align-items: center;
+        min-height: 24px;
+        padding: 4px 8px;
+        border-radius: 999px;
+        background: var(--blue-soft);
+        color: var(--blue);
+        font-size: 11px;
+        font-weight: 800;
+        white-space: nowrap;
+      }
+
+      .method.post {
+        background: var(--green-soft);
+        color: var(--green);
+      }
+
+      .method.patch {
+        background: var(--amber-soft);
+        color: var(--amber);
+      }
+
+      .contract {
+        display: grid;
+        grid-template-columns: 0.75fr 1fr 1fr;
+        gap: 1px;
+        overflow: hidden;
+        margin-top: 16px;
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        background: var(--line);
+      }
+
+      .contract div {
+        padding: 14px;
+        background: var(--soft);
+      }
+
+      .contract strong {
+        display: block;
+        margin-bottom: 6px;
+        font-size: 14px;
+      }
+
+      .contract p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 12px;
+        overflow-wrap: anywhere;
+      }
+
+      .adapter-grid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 12px;
+        margin-top: 16px;
+      }
+
+      .adapter-card {
+        padding: 14px;
+        border: 1px solid #b2ccff;
+        border-radius: 12px;
+        background: var(--blue-soft);
+      }
+
+      .adapter-card span {
+        display: inline-flex;
+        margin-bottom: 9px;
+        color: var(--blue);
+        font-size: 11px;
+        font-weight: 800;
+        text-transform: uppercase;
+      }
+
+      .adapter-card strong {
+        display: block;
+        margin-bottom: 7px;
+        font-size: 15px;
+        line-height: 1.12;
+        overflow-wrap: anywhere;
+      }
+
+      .adapter-card p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 12px;
+      }
+
+      main > section {
+        padding: 34px 0;
+      }
+
+      main > section + section {
+        border-top: 1px solid var(--line);
+      }
+
+      .case-links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin: 18px 0 0;
+      }
+
+      .case-links a {
+        display: inline-flex;
+        align-items: center;
+        min-height: 38px;
+        padding: 8px 12px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        color: var(--ink);
+        font-size: 12px;
+        font-weight: 800;
+        text-decoration: none;
+        text-transform: uppercase;
+      }
+
+      @media (max-width: 980px) {
+        .page {
+          width: 100%;
+          margin: 0;
+          padding: 24px;
+          border: 0;
+          border-radius: 0;
+        }
+
+        header,
+        .case-topbar,
+        .pipeline,
+        .signal-flow,
+        .metrics,
+        .api-grid,
+        .adapter-grid,
+        .contract {
+          grid-template-columns: 1fr;
+        }
+
+        .note,
+        .diagram-title p {
+          text-align: left;
+        }
+
+        .diagram-title {
+          display: grid;
+          gap: 10px;
+        }
+
+        .stage-card,
+        .signal-step {
+          min-height: auto;
+        }
+
+        .stage-card:not(:last-child)::before,
+        .signal-step:not(:last-child)::before {
+          top: auto;
+          right: 50%;
+          bottom: -24px;
+          width: 2px;
+          height: 24px;
+          transform: translateX(50%);
+        }
+
+        .stage-card:not(:last-child)::after,
+        .signal-step:not(:last-child)::after {
+          top: auto;
+          right: 50%;
+          bottom: -34px;
+          border-top: 10px solid #667085;
+          border-right: 7px solid transparent;
+          border-bottom: 0;
+          border-left: 7px solid transparent;
+          transform: translateX(50%);
+        }
+
+        h1 {
+          font-size: 34px;
+        }
+
+        main > section {
+          padding: 30px 0;
+        }
+
+        .case-links a {
+          width: 100%;
+          justify-content: center;
+          text-align: center;
+        }
+
+        .case-topnav a {
+          width: 100%;
+          justify-content: center;
+          white-space: normal;
+        }
+      }
+
+      @media print {
+        @page {
+          size: A4 landscape;
+          margin: 9mm;
+        }
+
+        :root {
+          --bg: #ffffff;
+          --ink: #101828;
+          --muted: #475467;
+          --line: #d0d5dd;
+          --paper: #ffffff;
+          --soft: #f2f4f7;
+          --blue: #0b5cff;
+          --blue-soft: #eef4ff;
+          --green: #027a48;
+          --green-soft: #ecfdf3;
+          --amber: #b54708;
+          --amber-soft: #fffaeb;
+          --red: #b42318;
+          --red-soft: #fef3f2;
+        }
+
+        body {
+          background: #ffffff;
+        }
+
+        .page {
+          width: auto;
+          margin: 0;
+          padding: 0;
+          border: 0;
+          border-radius: 0;
+        }
+
+        .pipeline {
+          gap: 28px;
+        }
+
+        .stage-card:not(:last-child)::before {
+          right: -29px;
+          width: 28px;
+        }
+
+        .stage-card:not(:last-child)::after {
+          right: -29px;
+        }
+
+        .stage-card,
+        .signal-step,
+        .sequence-diagram,
+        .metric,
+        .api-card,
+        .adapter-card,
+        .contract {
+          break-inside: avoid;
+        }
+
+        .case-topbar,
+        .case-links {
+          display: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="page">
+      <div class="case-topbar">
+        <a class="case-brand" href="index.html" aria-label="Кольцова Адриана">АК</a>
+        <nav class="case-topnav" aria-label="Страницы кейса">
+          <a href="index.html">Резюме</a>
+          <a href="portfolio.html#case-work-machine">Портфолио</a>
+          <a href="portfolio.html#case-tz">ТЗ</a>
+          <a href="case-product-panel-diagram.html">Диаграммы и API</a>
+        </nav>
+      </div>
+
+      <header>
+        <div>
+          <p class="label">Диаграммы / для PDF</p>
+          <h1>Рабочая панель: поток данных и сигналы</h1>
+        </div>
+        <p class="note">
+          Схемы показывают, как данные попадают в панель, превращаются в сигналы
+          и помогают команде быстрее находить блокеры.
+        </p>
+      </header>
+
+      <section aria-label="Диаграмма потока данных">
+        <div class="diagram-title">
+          <div>
+            <span class="kicker">Диаграмма 01</span>
+            <h2>Поток данных в рабочую панель</h2>
+          </div>
+          <p>Основной контур: от внешних сервисов до экранов, которые использует аналитик, продакт или менеджер.</p>
+        </div>
+
+        <div class="pipeline">
+          <article class="stage-card source">
+            <div class="stage-head">
+              <span class="kicker">01 вход</span>
+              <h3>Источники</h3>
+            </div>
+            <div class="stage-body">
+              <div class="pill"><strong>Yandex Tracker</strong><p>задачи, статусы, сроки, приоритеты</p></div>
+              <div class="pill"><strong>Google Calendar</strong><p>встречи, нагрузка, ближайшие события</p></div>
+              <div class="pill"><strong>Google Sheets</strong><p>партнеры, сверки, рабочие списки</p></div>
+              <div class="pill"><strong>Gmail</strong><p>письма, приглашения, коммуникации</p></div>
+            </div>
+          </article>
+
+          <article class="stage-card process">
+            <div class="stage-head">
+              <span class="kicker">02 обработка</span>
+              <h3>Единая модель</h3>
+            </div>
+            <div class="stage-body">
+              <div class="pill"><strong>Проверка доступа</strong><p>подключение, токен, понятная ошибка</p></div>
+              <div class="pill"><strong>Нормализация</strong><p>id, владелец, срок, статус, ссылка</p></div>
+              <div class="pill"><strong>Свежесть данных</strong><p>последняя синхронизация и источник</p></div>
+            </div>
+          </article>
+
+          <article class="stage-card rules">
+            <div class="stage-head">
+              <span class="kicker">03 логика</span>
+              <h3>Правила сигналов</h3>
+            </div>
+            <div class="stage-body">
+              <div class="pill danger"><strong>Просрочка</strong><p>срок прошел, задача не закрыта</p></div>
+              <div class="pill"><strong>Нет движения</strong><p>нет обновлений 7+ дней</p></div>
+              <div class="pill"><strong>Сбой источника</strong><p>ошибка доступа или синхронизации</p></div>
+              <div class="pill"><strong>Плотный день</strong><p>4+ встречи в рабочем дне</p></div>
+            </div>
+          </article>
+
+          <article class="stage-card result">
+            <div class="stage-head">
+              <span class="kicker">04 выход</span>
+              <h3>Рабочие экраны</h3>
+            </div>
+            <div class="stage-body">
+              <div class="pill"><strong>Дашборд</strong><p>фокус дня и общая картина</p></div>
+              <div class="pill"><strong>Доска задач</strong><p>статусы, фильтры, блокеры</p></div>
+              <div class="pill"><strong>Календарь</strong><p>неделя, встречи, загрузка</p></div>
+              <div class="pill"><strong>Подключения</strong><p>источники, ошибки, время обновления</p></div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section aria-label="Диаграмма жизненного цикла сигнала">
+        <div class="diagram-title">
+          <div>
+            <span class="kicker">Диаграмма 02</span>
+            <h2>Жизненный цикл сигнала риска</h2>
+          </div>
+          <p>Эта схема показывает, что происходит после обновления данных и как сигнал превращается в действие команды.</p>
+        </div>
+
+        <div class="signal-flow">
+          <article class="signal-step">
+            <span>1</span>
+            <strong>Данные обновились</strong>
+            <p>панель получила задачи, встречи и статусы источников</p>
+          </article>
+          <article class="signal-step">
+            <span>2</span>
+            <strong>Правило сработало</strong>
+            <p>найдена просрочка, сбой источника или задача без движения</p>
+          </article>
+          <article class="signal-step">
+            <span>3</span>
+            <strong>Сигнал показан</strong>
+            <p>риск виден в дашборде, фильтре или карточке задачи</p>
+          </article>
+          <article class="signal-step">
+            <span>4</span>
+            <strong>Команда действует</strong>
+            <p>появляется вопрос, созвон, эскалация или обновление статуса</p>
+          </article>
+          <article class="signal-step">
+            <span>5</span>
+            <strong>Риск закрыт</strong>
+            <p>задача обновлена, источник восстановлен, блокер снят</p>
+          </article>
+        </div>
+      </section>
+
+      <section aria-label="Sequence diagram синхронизации источников">
+        <div class="diagram-title">
+          <div>
+            <span class="kicker">Диаграмма 03</span>
+            <h2>Sequence diagram: синхронизация источников</h2>
+          </div>
+          <p>Сценарий показывает, как пользователь запускает обновление, а панель получает данные и показывает риск.</p>
+        </div>
+
+        <div class="sequence-diagram" aria-label="Sequence diagram: синхронизация источников и показ сигнала">
+          <div class="sequence-title">
+            <span class="kicker">Sequence diagram</span>
+            <strong>Синхронизация источников и показ сигнала</strong>
+          </div>
+          <div class="sequence-lanes">
+            <span>Пользователь</span>
+            <span>Рабочая панель</span>
+            <span>Sync API</span>
+            <span>Внешние источники</span>
+            <span>Risk Engine</span>
+          </div>
+          <div class="sequence-row">
+            <span>1</span>
+            <p>открывает панель</p>
+            <p>GET /api/tasks, /api/calendar/events, /api/connections</p>
+            <p>запрашивает актуальные данные</p>
+            <p>Yandex Tracker, Calendar, Sheets, Gmail</p>
+            <p></p>
+          </div>
+          <div class="sequence-row">
+            <span>2</span>
+            <p></p>
+            <p>показывает кэш и время последней синхронизации</p>
+            <p>нормализует задачи, встречи и статусы источников</p>
+            <p>возвращают данные или понятную ошибку</p>
+            <p></p>
+          </div>
+          <div class="sequence-row">
+            <span>3</span>
+            <p>запускает ручную синхронизацию</p>
+            <p>POST /api/sync/run</p>
+            <p>создает syncId и обновляет источник</p>
+            <p>возвращают результат обновления</p>
+            <p>проверяет просрочку, критичность и отсутствие движения</p>
+          </div>
+          <div class="sequence-row">
+            <span>4</span>
+            <p>видит сигнал и переходит в задачу</p>
+            <p>GET /api/risks/signals</p>
+            <p>возвращает активные сигналы</p>
+            <p></p>
+            <p>формирует reason и actionHint</p>
+          </div>
+        </div>
+      </section>
+
+      <section aria-label="API методы панели">
+        <div class="diagram-title">
+          <div>
+            <span class="kicker">Диаграмма 04</span>
+            <h2>API-методы и контракты данных</h2>
+          </div>
+          <p>Минимальный набор ручек для MVP: получение данных, запуск синхронизации и работа с сигналами риска.</p>
+        </div>
+
+        <div class="api-grid">
+          <article class="api-card">
+            <span class="method">GET</span>
+            <strong>/api/tasks</strong>
+            <p>Параметры: status, assignee, riskOnly, updatedBefore. Ответ: список задач для доски и фильтров.</p>
+          </article>
+          <article class="api-card">
+            <span class="method">GET</span>
+            <strong>/api/calendar/events</strong>
+            <p>Параметры: dateFrom, dateTo, owner. Ответ: встречи недели, ближайшее событие и плотность дня.</p>
+          </article>
+          <article class="api-card">
+            <span class="method">GET</span>
+            <strong>/api/connections</strong>
+            <p>Параметры: source, status. Ответ: состояние источников, время синхронизации и текст ошибки.</p>
+          </article>
+          <article class="api-card">
+            <span class="method post">POST</span>
+            <strong>/api/sync/run</strong>
+            <p>Тело: source, force. Ответ: syncId, status, startedAt. Запускает ручное обновление источника.</p>
+          </article>
+          <article class="api-card">
+            <span class="method">GET</span>
+            <strong>/api/risks/signals</strong>
+            <p>Параметры: severity, type, entityType. Ответ: активные сигналы по задачам, встречам и источникам.</p>
+          </article>
+          <article class="api-card">
+            <span class="method patch">PATCH</span>
+            <strong>/api/signals/{id}</strong>
+            <p>Тело: status, comment. Ответ: обновленный сигнал. Нужен для отметки "взято в работу" или "закрыто".</p>
+          </article>
+        </div>
+
+        <div class="adapter-grid" aria-label="Методы внешних API источников">
+          <article class="adapter-card">
+            <span>Yandex Tracker REST</span>
+            <strong>POST /v3/issues/_search</strong>
+            <p>получение задач по фильтру: очередь, статус, исполнитель, дата обновления</p>
+          </article>
+          <article class="adapter-card">
+            <span>Google Calendar API</span>
+            <strong>events.list</strong>
+            <p>получение встреч за период: timeMin, timeMax, calendarId, singleEvents</p>
+          </article>
+          <article class="adapter-card">
+            <span>Google Sheets API</span>
+            <strong>spreadsheets.values.get</strong>
+            <p>чтение рабочих списков, партнеров, сверок и справочников</p>
+          </article>
+          <article class="adapter-card">
+            <span>Gmail API</span>
+            <strong>users.messages.list</strong>
+            <p>проверка входящих коммуникаций и приглашений по рабочим фильтрам</p>
+          </article>
+        </div>
+
+        <div class="contract" aria-label="Общий формат ответа API">
+          <div>
+            <strong>Успешный ответ</strong>
+            <p>{ data, meta: { source, syncedAt, total } }</p>
+          </div>
+          <div>
+            <strong>Ошибка источника</strong>
+            <p>{ errorCode, errorText, source, retryAvailable }</p>
+          </div>
+          <div>
+            <strong>Общее правило</strong>
+            <p>панель показывает кэш и время последней синхронизации, если источник временно недоступен</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="metrics" aria-label="Эффект от продукта">
+        <article class="metric">
+          <span>экономия времени</span>
+          <strong>-40 мин/день</strong>
+          <p>на ручной сбор статусов из трекера, календаря, таблиц и почты</p>
+        </article>
+        <article class="metric">
+          <span>меньше переключений</span>
+          <strong>4 сервиса → 1 экран</strong>
+          <p>контекст задачи, встречи и подключения видны рядом</p>
+        </article>
+        <article class="metric">
+          <span>раньше видны блокеры</span>
+          <strong>риски до созвона</strong>
+          <p>команда приходит на статус уже с понятным списком проблем</p>
+        </article>
+      </section>
+    </main>
+  </body>
+</html>

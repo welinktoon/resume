@@ -1,0 +1,878 @@
+<!doctype html>
+<html lang="ru" data-theme="air">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>ТЗ к разработке - Продуктовая рабочая панель</title>
+    <meta http-equiv="refresh" content="0; url=portfolio.html#case-tz" />
+    <link rel="canonical" href="portfolio.html#case-tz" />
+    <script>
+      window.location.replace("portfolio.html#case-tz");
+    </script>
+    <meta
+      name="description"
+      content="Техническое задание к разработке продуктовой рабочей панели: цели, роли, источники, требования, сценарии и критерии приемки."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <style>
+      :root {
+        color-scheme: light;
+        --bg: #eef2f6;
+        --ink: #101828;
+        --muted: #475467;
+        --line: #d0d5dd;
+        --paper: #ffffff;
+        --soft: #f2f4f7;
+        --blue: #0b5cff;
+        --green: #027a48;
+        --amber: #b54708;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--ink);
+        font-family: "Manrope", Arial, sans-serif;
+        line-height: 1.5;
+        word-break: normal;
+        overflow-wrap: break-word;
+      }
+
+      .page {
+        width: min(980px, calc(100% - 32px));
+        margin: 28px auto;
+        padding: 46px;
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        background: var(--paper);
+      }
+
+      .case-topbar {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        gap: 18px;
+        align-items: center;
+        margin-bottom: 34px;
+      }
+
+      .case-brand {
+        display: grid;
+        width: 50px;
+        height: 50px;
+        place-items: center;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: var(--ink);
+        color: var(--bg);
+        font-size: 20px;
+        font-weight: 800;
+        text-decoration: none;
+      }
+
+      .case-topnav {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
+      .case-topnav a {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 38px;
+        padding: 8px 12px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        color: var(--muted);
+        font-size: 12px;
+        font-weight: 800;
+        text-align: center;
+        text-decoration: none;
+        text-transform: uppercase;
+        white-space: nowrap;
+      }
+
+      .case-topnav a:hover,
+      .case-links a:hover {
+        border-color: var(--blue);
+        color: var(--blue);
+      }
+
+      header {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        gap: 24px;
+        align-items: start;
+        padding-bottom: 30px;
+        border-bottom: 2px solid var(--ink);
+      }
+
+      .label,
+      h2 span {
+        color: var(--blue);
+        font-size: 12px;
+        font-weight: 800;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      h1 {
+        max-width: 760px;
+        margin: 10px 0 0;
+        font-size: 44px;
+        line-height: 1.05;
+        letter-spacing: 0;
+        text-transform: uppercase;
+        text-wrap: balance;
+      }
+
+      .meta {
+        display: grid;
+        gap: 8px;
+        min-width: 210px;
+        color: var(--muted);
+        font-size: 13px;
+        text-align: right;
+      }
+
+      .summary {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 1px;
+        overflow: hidden;
+        margin: 30px 0 8px;
+        border: 1px solid var(--line);
+        border-radius: 10px;
+        background: var(--line);
+      }
+
+      .summary article {
+        padding: 18px;
+        background: var(--soft);
+      }
+
+      .summary strong {
+        display: block;
+        margin-bottom: 8px;
+        font-size: 20px;
+        line-height: 1.1;
+        text-wrap: balance;
+      }
+
+      .summary p,
+      td,
+      li,
+      .note {
+        color: var(--muted);
+      }
+
+      p,
+      li,
+      td,
+      .note {
+        text-wrap: pretty;
+      }
+
+      section {
+        padding: 30px 0;
+        border-top: 1px solid var(--line);
+      }
+
+      h2 {
+        display: grid;
+        gap: 8px;
+        margin: 0 0 16px;
+        font-size: 24px;
+        line-height: 1.15;
+        text-wrap: balance;
+      }
+
+      h3 {
+        margin: 22px 0 10px;
+        font-size: 16px;
+        line-height: 1.2;
+        text-wrap: balance;
+      }
+
+      p {
+        margin: 0 0 12px;
+      }
+
+      ul {
+        display: grid;
+        gap: 8px;
+        margin: 0;
+        padding-left: 20px;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        overflow: hidden;
+        border: 1px solid var(--line);
+        border-radius: 10px;
+        font-size: 14px;
+      }
+
+      th,
+      td {
+        padding: 12px;
+        border-bottom: 1px solid var(--line);
+        text-align: left;
+        vertical-align: top;
+        overflow-wrap: break-word;
+      }
+
+      th:first-child,
+      td:first-child {
+        width: 96px;
+        min-width: 96px;
+        white-space: nowrap;
+      }
+
+      th {
+        background: var(--soft);
+        color: var(--ink);
+        font-size: 12px;
+        text-transform: uppercase;
+        white-space: nowrap;
+      }
+
+      tr:last-child td {
+        border-bottom: 0;
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 16px;
+      }
+
+      .card {
+        padding: 16px;
+        border: 1px solid var(--line);
+        border-radius: 10px;
+        background: var(--paper);
+      }
+
+      .badge-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+
+      .badge {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 6px 9px;
+        border-radius: 999px;
+        background: var(--soft);
+        color: var(--blue);
+        font-size: 12px;
+        font-weight: 800;
+        text-align: center;
+        text-wrap: balance;
+      }
+
+      .compact {
+        font-size: 13px;
+      }
+
+      .scope-list {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 1px;
+        overflow: hidden;
+        border: 1px solid var(--line);
+        border-radius: 10px;
+        background: var(--line);
+      }
+
+      .scope-list article {
+        padding: 16px;
+        background: var(--paper);
+      }
+
+      .scope-list h3 {
+        margin-top: 0;
+      }
+
+      .case-links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin: 18px 0 0;
+      }
+
+      .case-links a {
+        display: inline-flex;
+        align-items: center;
+        min-height: 38px;
+        padding: 8px 12px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        color: var(--ink);
+        font-size: 12px;
+        font-weight: 800;
+        text-decoration: none;
+        text-transform: uppercase;
+      }
+
+      .method {
+        display: inline-flex;
+        padding: 4px 8px;
+        border-radius: 999px;
+        background: var(--soft);
+        color: var(--blue);
+        font-size: 11px;
+        font-weight: 800;
+        white-space: nowrap;
+      }
+
+      .compact td:nth-child(2),
+      .compact td:nth-child(4),
+      .compact td:nth-child(5) {
+        overflow-wrap: anywhere;
+      }
+
+      .method.post {
+        background: var(--soft);
+        color: var(--green);
+      }
+
+      .method.patch {
+        background: var(--soft);
+        color: var(--amber);
+      }
+
+      .ok {
+        color: var(--green);
+      }
+
+      .warn {
+        color: var(--amber);
+      }
+
+      @media (max-width: 760px) {
+        .page {
+          width: 100%;
+          margin: 0;
+          padding: 24px;
+          border: 0;
+          border-radius: 0;
+        }
+
+        header,
+        .case-topbar,
+        .summary,
+        .grid,
+        .scope-list {
+          grid-template-columns: 1fr;
+        }
+
+        .meta {
+          text-align: left;
+        }
+
+        h1 {
+          font-size: 34px;
+        }
+
+        section {
+          overflow-x: auto;
+        }
+
+        table {
+          min-width: 680px;
+        }
+
+        .case-links a {
+          width: 100%;
+          justify-content: center;
+          text-align: center;
+        }
+
+        .case-topnav a {
+          width: 100%;
+          justify-content: center;
+          white-space: normal;
+        }
+      }
+
+      @media print {
+        @page {
+          size: A4;
+          margin: 14mm;
+        }
+
+        :root {
+          --bg: #ffffff;
+          --ink: #101828;
+          --muted: #475467;
+          --line: #d0d5dd;
+          --paper: #ffffff;
+          --soft: #f2f4f7;
+          --blue: #0b5cff;
+          --green: #027a48;
+          --amber: #b54708;
+        }
+
+        body {
+          background: #fff;
+        }
+
+        .page {
+          width: auto;
+          margin: 0;
+          padding: 0;
+          border: 0;
+          border-radius: 0;
+        }
+
+        section {
+          break-inside: avoid;
+        }
+
+        .case-topbar,
+        .case-links {
+          display: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="page">
+      <div class="case-topbar">
+        <a class="case-brand" href="index.html" aria-label="Кольцова Адриана">АК</a>
+        <nav class="case-topnav" aria-label="Страницы кейса">
+          <a href="index.html">Резюме</a>
+          <a href="portfolio.html#case-work-machine">Портфолио</a>
+          <a href="case-product-panel-tz.html">ТЗ</a>
+          <a href="case-product-panel-diagram.html">Диаграммы и API</a>
+        </nav>
+      </div>
+
+      <header>
+        <div>
+          <p class="label">ТЗ к разработке</p>
+          <h1>Продуктовая рабочая панель</h1>
+        </div>
+        <div class="meta">
+          <span>Версия: 1.0</span>
+          <span>Роль: системный анализ / продукт / delivery</span>
+        </div>
+      </header>
+
+      <div class="summary" aria-label="Ключевой эффект">
+        <article><strong>-40 мин/день</strong><p>на ручной сбор статусов и сверку источников</p></article>
+        <article><strong>4 сервиса</strong><p>трекер, календарь, таблицы и почта в едином рабочем окне</p></article>
+        <article><strong>риски сразу</strong><p>просрочки, блокеры, критичность и сбои синхронизации</p></article>
+        <article><strong>+1-2 ч/нед</strong><p>возвращаются в delivery вместо ручных апдейтов</p></article>
+      </div>
+
+      <section>
+        <h2><span>01</span> Цель продукта</h2>
+        <p>
+          Создать внутреннюю рабочую панель для продуктовой команды, которая собирает задачи,
+          встречи, источники данных и статусы подключений в одном интерфейсе.
+        </p>
+        <p class="note">
+          Главная задача: сократить ручной обход сервисов и быстрее подсвечивать риски,
+          которые влияют на delivery.
+        </p>
+      </section>
+
+      <section>
+        <h2><span>02</span> Границы MVP</h2>
+        <div class="scope-list">
+          <article>
+            <h3>Входит в MVP</h3>
+            <ul>
+              <li>единая сводка по задачам, встречам и источникам;</li>
+              <li>фильтры по просрочкам, критичности и отсутствию движения;</li>
+              <li>статусы подключений и понятные ошибки синхронизации;</li>
+              <li>переходы из панели в исходные объекты: задачу, встречу, таблицу.</li>
+            </ul>
+          </article>
+          <article>
+            <h3>Не входит в MVP</h3>
+            <ul>
+              <li>редактирование задач и встреч внутри панели;</li>
+              <li>автоматическая рассылка статусов во внешние чаты;</li>
+              <li>сложная ролевая модель с правами на каждый виджет;</li>
+              <li>историческая аналитика за несколько кварталов.</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section>
+        <h2><span>03</span> Пользователи</h2>
+        <div class="grid">
+          <article class="card">
+            <h3>Системный аналитик</h3>
+            <ul>
+              <li>видит задачи, блокеры, статусы и комментарии;</li>
+              <li>готовит вопросы к бизнесу и разработке;</li>
+              <li>проверяет готовность сценариев к приемке.</li>
+            </ul>
+          </article>
+          <article class="card">
+            <h3>Продакт / проектный / delivery-менеджер</h3>
+            <ul>
+              <li>контролирует риски, сроки и загрузку недели;</li>
+              <li>быстро понимает, где нужен созвон или эскалация;</li>
+              <li>видит состояние подключений без ручного запроса статусов.</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section>
+        <h2><span>04</span> Источники данных</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Источник</th>
+              <th>Данные</th>
+              <th>Ключевые проверки</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Yandex Tracker</td>
+              <td>задачи, статусы, приоритеты, сроки, комментарии</td>
+              <td>просрочка, критичность, отсутствие движения, наличие комментариев</td>
+            </tr>
+            <tr>
+              <td>Google Calendar</td>
+              <td>встречи, плотность недели, ближайшие события</td>
+              <td>нагрузка по дням, ближайшая встреча, конфликтные окна</td>
+            </tr>
+            <tr>
+              <td>Google Sheets</td>
+              <td>партнеры, сверки, рабочие списки</td>
+              <td>актуальность выгрузки, заполненность, ошибки синхронизации</td>
+            </tr>
+            <tr>
+              <td>Gmail</td>
+              <td>рабочие письма, приглашения, внешние коммуникации</td>
+              <td>подключение, статус доступа, наличие новых писем</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section>
+        <h2><span>05</span> Ключевые сущности и поля</h2>
+        <table class="compact">
+          <thead>
+            <tr>
+              <th>Сущность</th>
+              <th>Обязательные поля</th>
+              <th>Зачем нужны</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Task</td>
+              <td>id, title, status, priority, assignee, dueDate, updatedAt, sourceUrl</td>
+              <td>построение доски, фильтров, просрочек и ссылок в первоисточник</td>
+            </tr>
+            <tr>
+              <td>Meeting</td>
+              <td>id, title, startsAt, endsAt, organizer, attendeesCount, sourceUrl</td>
+              <td>недельная сетка, ближайшие события и оценка нагрузки</td>
+            </tr>
+            <tr>
+              <td>Connection</td>
+              <td>source, status, lastSyncAt, errorCode, errorText, owner</td>
+              <td>контроль интеграций и понятное объяснение, почему данные не обновились</td>
+            </tr>
+            <tr>
+              <td>RiskSignal</td>
+              <td>type, severity, reason, relatedEntityId, actionHint</td>
+              <td>единая подсветка блокеров, просрочек и задач без движения</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section>
+        <h2><span>06</span> API-методы MVP</h2>
+        <table class="compact">
+          <thead>
+            <tr>
+              <th>Метод</th>
+              <th>Endpoint</th>
+              <th>Назначение</th>
+              <th>Параметры / тело</th>
+              <th>Ответ</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="method">GET</span></td>
+              <td>/api/tasks</td>
+              <td>получить задачи для доски, фильтров и счетчиков</td>
+              <td>status, assignee, riskOnly, updatedBefore</td>
+              <td>Task[], meta.syncedAt, meta.total</td>
+            </tr>
+            <tr>
+              <td><span class="method">GET</span></td>
+              <td>/api/calendar/events</td>
+              <td>получить встречи недели и ближайшее событие</td>
+              <td>dateFrom, dateTo, owner</td>
+              <td>Meeting[], busyDays[], nextEvent</td>
+            </tr>
+            <tr>
+              <td><span class="method">GET</span></td>
+              <td>/api/connections</td>
+              <td>показать состояние подключений и ошибки источников</td>
+              <td>source, status</td>
+              <td>Connection[], lastSyncAt, errorText</td>
+            </tr>
+            <tr>
+              <td><span class="method post">POST</span></td>
+              <td>/api/sync/run</td>
+              <td>запустить ручную синхронизацию источника</td>
+              <td>{ source, force }</td>
+              <td>syncId, status, startedAt</td>
+            </tr>
+            <tr>
+              <td><span class="method">GET</span></td>
+              <td>/api/risks/signals</td>
+              <td>получить активные сигналы риска</td>
+              <td>severity, type, entityType</td>
+              <td>RiskSignal[], actionHint</td>
+            </tr>
+            <tr>
+              <td><span class="method patch">PATCH</span></td>
+              <td>/api/signals/{id}</td>
+              <td>обновить статус сигнала</td>
+              <td>{ status, comment }</td>
+              <td>RiskSignal</td>
+            </tr>
+          </tbody>
+        </table>
+        <p class="note">
+          Общий формат ошибки: errorCode, errorText, source, retryAvailable. Если источник недоступен,
+          интерфейс показывает кэш и время последней успешной синхронизации.
+        </p>
+        <h3>Методы внешних источников</h3>
+        <table class="compact">
+          <thead>
+            <tr>
+              <th>Источник</th>
+              <th>Метод API</th>
+              <th>Что забираем</th>
+              <th>Ключевые поля</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Yandex Tracker</td>
+              <td>POST /v3/issues/_search</td>
+              <td>задачи по очереди, статусу, исполнителю и дате обновления</td>
+              <td>key, summary, status, assignee, deadline, updatedAt</td>
+            </tr>
+            <tr>
+              <td>Google Calendar</td>
+              <td>events.list</td>
+              <td>встречи за выбранный период и ближайшие события</td>
+              <td>id, summary, start, end, organizer, attendees</td>
+            </tr>
+            <tr>
+              <td>Google Sheets</td>
+              <td>spreadsheets.values.get</td>
+              <td>рабочие списки, партнеры, сверки и справочники</td>
+              <td>range, values, majorDimension, updatedAt</td>
+            </tr>
+            <tr>
+              <td>Gmail</td>
+              <td>users.messages.list</td>
+              <td>письма и приглашения по рабочим фильтрам</td>
+              <td>id, threadId, labelIds, snippet, internalDate</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section>
+        <h2><span>07</span> Функциональные требования</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Требование</th>
+              <th>Критерий приемки</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>FR-01</td>
+              <td>Показывать сводку по задачам, рискам, встречам и источникам.</td>
+              <td>Пользователь видит ключевые счетчики без перехода в другие разделы.</td>
+            </tr>
+            <tr>
+              <td>FR-02</td>
+              <td>Разделять задачи по статусам: бэклог, ожидание, в работе, тестирование, закрыто.</td>
+              <td>Каждая задача попадает в корректную колонку по статусу из трекера.</td>
+            </tr>
+            <tr>
+              <td>FR-03</td>
+              <td>Подсвечивать просроченные, критичные и зависшие задачи.</td>
+              <td>Задачи с рисками имеют визуальный сигнал и доступны через фильтр.</td>
+            </tr>
+            <tr>
+              <td>FR-04</td>
+              <td>Показывать недельный календарь встреч и ближайшее событие.</td>
+              <td>Пользователь видит количество встреч, плотный день и расписание недели.</td>
+            </tr>
+            <tr>
+              <td>FR-05</td>
+              <td>Показывать статусы подключений к источникам.</td>
+              <td>Для каждого источника виден статус: подключено, ошибка, требуется настройка.</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section>
+        <h2><span>08</span> Пользовательские истории</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Роль</th>
+              <th>История</th>
+              <th>Ценность</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Аналитик</td>
+              <td>Я хочу быстро видеть задачи без движения и открытые вопросы, чтобы подготовиться к статусу.</td>
+              <td>меньше ручной сверки перед созвоном</td>
+            </tr>
+            <tr>
+              <td>Delivery-менеджер</td>
+              <td>Я хочу видеть риски по срокам и ошибки источников на одном экране, чтобы вовремя эскалировать.</td>
+              <td>раньше обнаруживаются блокеры</td>
+            </tr>
+            <tr>
+              <td>Продакт</td>
+              <td>Я хочу видеть встречи недели рядом с задачами, чтобы понимать нагрузку и фокус команды.</td>
+              <td>проще планировать обсуждения и приемку</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section>
+        <h2><span>09</span> Основные сценарии</h2>
+        <div class="grid">
+          <article class="card">
+            <h3>Ежедневный обзор</h3>
+            <ul>
+              <li>пользователь открывает дашборд;</li>
+              <li>видит риски, встречи, просрочки и сбои источников;</li>
+              <li>переходит только в те зоны, где нужно действие.</li>
+            </ul>
+          </article>
+          <article class="card">
+            <h3>Подготовка к статусу</h3>
+            <ul>
+              <li>пользователь фильтрует задачи без движения;</li>
+              <li>сверяет встречи недели;</li>
+              <li>формирует список вопросов и следующих действий.</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section>
+        <h2><span>10</span> Правила сигналов</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Сигнал</th>
+              <th>Условие</th>
+              <th>Действие в интерфейсе</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Просрочено</td>
+              <td>dueDate меньше текущей даты, статус не закрывающий</td>
+              <td>красная метка, попадание в фильтр рисков</td>
+            </tr>
+            <tr>
+              <td>Нет движения</td>
+              <td>updatedAt старше 7 дней и задача не закрыта</td>
+              <td>желтая метка и подсказка проверить актуальность</td>
+            </tr>
+            <tr>
+              <td>Ошибка источника</td>
+              <td>последняя синхронизация завершилась ошибкой или истек токен</td>
+              <td>статус "требует внимания" и короткий текст причины</td>
+            </tr>
+            <tr>
+              <td>Плотный день</td>
+              <td>4+ встречи в рабочий день</td>
+              <td>подсветка дня в календаре и счетчик нагрузки</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section>
+        <h2><span>11</span> Нефункциональные требования</h2>
+        <ul>
+          <li>Обновление данных не должно блокировать просмотр уже загруженной информации.</li>
+          <li>Ошибки источников должны быть видны пользователю понятным текстом.</li>
+          <li>Интерфейс должен работать на десктопе и планшете без горизонтального скролла страницы.</li>
+          <li>Чувствительные данные в публичных скриншотах должны быть скрыты или заменены.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2><span>12</span> Статусы и сигналы</h2>
+        <div class="badge-row">
+          <span class="badge">просрочено</span>
+          <span class="badge">критично</span>
+          <span class="badge">нет движения</span>
+          <span class="badge">есть комментарии</span>
+          <span class="badge">подключено</span>
+          <span class="badge">ошибка синхронизации</span>
+        </div>
+      </section>
+
+      <section>
+        <h2><span>13</span> Критерии приемки</h2>
+        <ul>
+          <li class="ok">Панель отображает задачи, встречи и источники на одной странице.</li>
+          <li class="ok">Риски по задачам доступны без ручной проверки трекера.</li>
+          <li class="ok">Состояние подключений видно до запуска ручной синхронизации.</li>
+          <li class="warn">При недоступности источника пользователь получает понятный статус и текст ошибки.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2><span>14</span> Открытые вопросы</h2>
+        <ul>
+          <li>Какие статусы Yandex Tracker считаются закрывающими для конкретной команды?</li>
+          <li>Нужно ли показывать личные календари или только рабочие проектные встречи?</li>
+          <li>Какие источники должны быть обязательными, а какие можно скрывать при отсутствии доступа?</li>
+          <li>Какой срок хранения локального кэша допустим для публичной версии без персональных данных?</li>
+        </ul>
+      </section>
+    </main>
+  </body>
+</html>
