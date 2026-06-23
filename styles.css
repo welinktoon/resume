@@ -445,8 +445,8 @@ h1 span {
 
 .editorial-section {
   display: grid;
-  grid-template-columns: minmax(280px, 0.32fr) minmax(0, 1fr);
-  column-gap: 48px;
+  grid-template-columns: minmax(360px, 0.36fr) minmax(0, 1fr);
+  column-gap: 56px;
   row-gap: 30px;
   padding: var(--section-y) 0;
   border-top: 1px solid var(--line);
