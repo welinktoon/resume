@@ -445,8 +445,8 @@ h1 span {
 
 .editorial-section {
   display: grid;
-  grid-template-columns: minmax(430px, 0.52fr) minmax(0, 1fr);
-  column-gap: 72px;
+  grid-template-columns: minmax(280px, 0.32fr) minmax(0, 1fr);
+  column-gap: 48px;
   row-gap: 30px;
   padding: var(--section-y) 0;
   border-top: 1px solid var(--line);
@@ -1800,8 +1800,8 @@ h2 {
 
 .job {
   display: grid;
-  grid-template-columns: minmax(220px, 0.36fr) minmax(0, 1fr);
-  gap: var(--gap-lg);
+  grid-template-columns: minmax(190px, 0.28fr) minmax(0, 1fr);
+  gap: 30px;
   padding: 30px;
   background: var(--panel);
   transition: background 180ms ease;
