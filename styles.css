@@ -2221,10 +2221,10 @@ h2 {
 
 .svodika-extras {
   overflow: hidden;
-  border: 1px solid var(--ink);
+  border: 1px solid var(--line);
   border-radius: var(--radius);
-  background: var(--ink);
-  color: #ffffff;
+  background: var(--line);
+  color: var(--ink);
 }
 
 .svodika-extras-head {
@@ -2233,12 +2233,13 @@ h2 {
   gap: 28px;
   align-items: end;
   padding: 28px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+  border-bottom: 1px solid var(--line);
+  background: var(--soft);
 }
 
 .svodika-extras-head > span,
 .svodika-extras-grid article > span {
-  color: var(--accent-2);
+  color: var(--accent);
   font-size: 12px;
   font-weight: 800;
   text-transform: uppercase;
@@ -2254,7 +2255,7 @@ h2 {
 .svodika-extras-head p,
 .svodika-extras-grid p {
   margin: 0;
-  color: rgba(255, 255, 255, 0.68);
+  color: var(--muted);
 }
 
 .svodika-extras-grid {
@@ -2265,8 +2266,9 @@ h2 {
 .svodika-extras-grid article {
   min-width: 0;
   padding: 24px 28px 28px;
-  border-right: 1px solid rgba(255, 255, 255, 0.14);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  background: var(--panel);
 }
 
 .svodika-extras-grid article:nth-child(3n) {
@@ -2773,7 +2775,7 @@ h2 {
   }
 
   .svodika-extras-grid article:nth-child(3n) {
-    border-right: 1px solid rgba(255, 255, 255, 0.14);
+    border-right: 1px solid var(--line);
   }
 
   .svodika-extras-grid article:nth-child(2n) {
@@ -2781,7 +2783,7 @@ h2 {
   }
 
   .svodika-extras-grid article:nth-last-child(-n + 3) {
-    border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+    border-bottom: 1px solid var(--line);
   }
 
   .svodika-extras-grid article:nth-last-child(-n + 2) {
@@ -2834,7 +2836,7 @@ h2 {
   .svodika-extras-grid article:nth-last-child(-n + 2),
   .svodika-extras-grid article:nth-last-child(-n + 3) {
     border-right: 0;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+    border-bottom: 1px solid var(--line);
   }
 
   .svodika-extras-grid article:last-child {
