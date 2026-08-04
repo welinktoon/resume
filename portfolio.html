@@ -12,7 +12,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
     <link rel="icon" href="assets/favicon.svg?v=1" type="image/svg+xml" />
-    <link rel="stylesheet" href="styles.css?v=41" />
+    <link rel="stylesheet" href="styles.css?v=42" />
   </head>
   <body>
     <header class="site-header">
@@ -144,6 +144,74 @@
               </button>
               <figcaption>Подключения: Google Sheets, Yandex Tracker, Google Calendar, Gmail и статусы синхронизации.</figcaption>
             </figure>
+          </div>
+        </div>
+
+        <div id="case-svodika" class="case-block case-block-secondary">
+          <div class="case-head">
+            <span class="period">Кейс 2</span>
+            <h3>Svodika</h3>
+            <p>
+              Windows-приложение для записи экрана, системного звука и микрофона,
+              локальной расшифровки встреч и подготовки структурированных итогов.
+            </p>
+          </div>
+
+          <div class="case-tags" aria-label="Ключевые темы кейса Svodika">
+            <span>Windows 10/11</span>
+            <span>Python + Qt</span>
+            <span>faster-whisper</span>
+            <span>CPU / NVIDIA</span>
+            <span>local-first</span>
+            <span>SQLite</span>
+            <span>GitHub Actions</span>
+          </div>
+
+          <div class="case-points">
+            <article>
+              <h4>Зачем</h4>
+              <p>Сохранить встречу, экран и звук, а затем получить текст без обязательной отправки записи во внешний сервис.</p>
+            </article>
+            <article>
+              <h4>Что внутри</h4>
+              <p>Запись, локальные модели Whisper, импорт аудио, история, поиск, воспроизведение и повторная обработка.</p>
+            </article>
+            <article>
+              <h4>Что сделала</h4>
+              <p>Собрала пользовательский сценарий, структуру интерфейса, хранение данных, обновления и выпуск Windows-сборок.</p>
+            </article>
+          </div>
+
+          <div class="case-metrics" aria-label="Возможности Svodika">
+            <article>
+              <strong>3 источника</strong>
+              <p>экран, системный звук и микрофон записываются в одном сценарии</p>
+            </article>
+            <article>
+              <strong>локально</strong>
+              <p>основная расшифровка работает на CPU или NVIDIA GPU</p>
+            </article>
+            <article>
+              <strong>1 архив</strong>
+              <p>медиа, исходный текст, итоги и история встреч собраны вместе</p>
+            </article>
+            <article>
+              <strong>автообновление</strong>
+              <p>релизы проверяются в GitHub с контролем SHA-256 установщика</p>
+            </article>
+          </div>
+
+          <div class="case-artifacts" aria-label="Ссылки проекта Svodika">
+            <a class="case-artifact" href="https://github.com/welinktoon/svodika" target="_blank" rel="noreferrer">
+              <span>Проект / GitHub</span>
+              <strong>Исходный код и документация</strong>
+              <p>Архитектура, README, история изменений и открытый код приложения.</p>
+            </a>
+            <a class="case-artifact" href="https://github.com/welinktoon/svodika/releases/latest" target="_blank" rel="noreferrer">
+              <span>Сборка / Windows</span>
+              <strong>Скачать последнюю версию</strong>
+              <p>Готовый установщик Svodika для Windows 10/11 и контрольная сумма SHA-256.</p>
+            </a>
           </div>
         </div>
 
@@ -709,73 +777,6 @@
           </div>
         </section>
 
-        <div id="case-svodika" class="case-block case-block-secondary">
-          <div class="case-head">
-            <span class="period">Кейс 2</span>
-            <h3>Svodika</h3>
-            <p>
-              Windows-приложение для записи экрана, системного звука и микрофона,
-              локальной расшифровки встреч и подготовки структурированных итогов.
-            </p>
-          </div>
-
-          <div class="case-tags" aria-label="Ключевые темы кейса Svodika">
-            <span>Windows 10/11</span>
-            <span>Python + Qt</span>
-            <span>faster-whisper</span>
-            <span>CPU / NVIDIA</span>
-            <span>local-first</span>
-            <span>SQLite</span>
-            <span>GitHub Actions</span>
-          </div>
-
-          <div class="case-points">
-            <article>
-              <h4>Зачем</h4>
-              <p>Сохранить встречу, экран и звук, а затем получить текст без обязательной отправки записи во внешний сервис.</p>
-            </article>
-            <article>
-              <h4>Что внутри</h4>
-              <p>Запись, локальные модели Whisper, импорт аудио, история, поиск, воспроизведение и повторная обработка.</p>
-            </article>
-            <article>
-              <h4>Что сделала</h4>
-              <p>Собрала пользовательский сценарий, структуру интерфейса, хранение данных, обновления и выпуск Windows-сборок.</p>
-            </article>
-          </div>
-
-          <div class="case-metrics" aria-label="Возможности Svodika">
-            <article>
-              <strong>3 источника</strong>
-              <p>экран, системный звук и микрофон записываются в одном сценарии</p>
-            </article>
-            <article>
-              <strong>локально</strong>
-              <p>основная расшифровка работает на CPU или NVIDIA GPU</p>
-            </article>
-            <article>
-              <strong>1 архив</strong>
-              <p>медиа, исходный текст, итоги и история встреч собраны вместе</p>
-            </article>
-            <article>
-              <strong>автообновление</strong>
-              <p>релизы проверяются в GitHub с контролем SHA-256 установщика</p>
-            </article>
-          </div>
-
-          <div class="case-artifacts" aria-label="Ссылки проекта Svodika">
-            <a class="case-artifact" href="https://github.com/welinktoon/svodika" target="_blank" rel="noreferrer">
-              <span>Проект / GitHub</span>
-              <strong>Исходный код и документация</strong>
-              <p>Архитектура, README, история изменений и открытый код приложения.</p>
-            </a>
-            <a class="case-artifact" href="https://github.com/welinktoon/svodika/releases/latest" target="_blank" rel="noreferrer">
-              <span>Сборка / Windows</span>
-              <strong>Скачать последнюю версию</strong>
-              <p>Готовый установщик Svodika для Windows 10/11 и контрольная сумма SHA-256.</p>
-            </a>
-          </div>
-        </div>
       </section>
     </main>
 
