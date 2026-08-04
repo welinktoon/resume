@@ -88,6 +88,73 @@ const revealTargets = document.querySelectorAll(
 
 const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
+const portfolioCaseTabs = Array.from(document.querySelectorAll("[data-case-target]"));
+const portfolioCasePanels = Array.from(document.querySelectorAll("[data-case-panel]"));
+
+function caseFromHash() {
+  return window.location.hash === "#case-svodika" ? "svodika" : "work-machine";
+}
+
+function selectPortfolioCase(caseName, { updateHash = false, scroll = false } = {}) {
+  if (!portfolioCaseTabs.length || !portfolioCasePanels.length) {
+    return;
+  }
+
+  portfolioCaseTabs.forEach((tab) => {
+    const isActive = tab.dataset.caseTarget === caseName;
+    tab.classList.toggle("is-active", isActive);
+    tab.setAttribute("aria-selected", String(isActive));
+    tab.tabIndex = isActive ? 0 : -1;
+  });
+
+  portfolioCasePanels.forEach((panel) => {
+    panel.hidden = panel.dataset.casePanel !== caseName;
+  });
+
+  const targetId = caseName === "svodika" ? "case-svodika" : "case-work-machine";
+
+  if (updateHash) {
+    window.history.pushState(null, "", `#${targetId}`);
+  }
+
+  if (scroll) {
+    document.getElementById(targetId)?.scrollIntoView({
+      block: "start",
+      behavior: reduceMotion ? "auto" : "smooth",
+    });
+  }
+}
+
+portfolioCaseTabs.forEach((tab) => {
+  tab.addEventListener("click", () => {
+    selectPortfolioCase(tab.dataset.caseTarget, { updateHash: true, scroll: true });
+  });
+
+  tab.addEventListener("keydown", (event) => {
+    if (!["ArrowLeft", "ArrowRight", "Home", "End"].includes(event.key)) {
+      return;
+    }
+
+    event.preventDefault();
+    const currentIndex = portfolioCaseTabs.indexOf(tab);
+    const nextIndex =
+      event.key === "Home"
+        ? 0
+        : event.key === "End"
+          ? portfolioCaseTabs.length - 1
+          : (currentIndex + (event.key === "ArrowRight" ? 1 : -1) + portfolioCaseTabs.length) %
+            portfolioCaseTabs.length;
+    const nextTab = portfolioCaseTabs[nextIndex];
+
+    nextTab.focus();
+    selectPortfolioCase(nextTab.dataset.caseTarget, { updateHash: true, scroll: true });
+  });
+});
+
+if (portfolioCaseTabs.length) {
+  selectPortfolioCase(caseFromHash());
+}
+
 if (!reduceMotion && "IntersectionObserver" in window) {
   revealTargets.forEach((element, index) => {
     element.classList.add("reveal");
@@ -199,5 +266,6 @@ window.addEventListener("load", () => {
 });
 
 window.addEventListener("hashchange", () => {
+  selectPortfolioCase(caseFromHash());
   window.setTimeout(alignHashTarget, 0);
 });

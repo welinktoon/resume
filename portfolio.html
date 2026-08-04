@@ -12,7 +12,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
     <link rel="icon" href="assets/favicon.svg?v=1" type="image/svg+xml" />
-    <link rel="stylesheet" href="styles.css?v=42" />
+    <link rel="stylesheet" href="styles.css?v=43" />
   </head>
   <body>
     <header class="site-header">
@@ -38,26 +38,40 @@
           </p>
         </div>
 
-        <div class="portfolio-projects" aria-label="Проекты портфолио">
-          <a class="portfolio-project-card" href="#case-work-machine">
+        <div class="portfolio-projects" role="tablist" aria-label="Проекты портфолио">
+          <button
+            class="portfolio-project-card is-active"
+            type="button"
+            role="tab"
+            aria-selected="true"
+            aria-controls="case-work-machine"
+            data-case-target="work-machine"
+          >
             <span>Кейс 1 / Веб-продукт</span>
             <strong>Продуктовая рабочая панель</strong>
             <p>Задачи, встречи, источники данных и сигналы риска в одном интерфейсе.</p>
             <span class="portfolio-project-action">Смотреть кейс</span>
-          </a>
+          </button>
 
-          <a class="portfolio-project-card portfolio-project-card-accent" href="#case-svodika">
+          <button
+            class="portfolio-project-card"
+            type="button"
+            role="tab"
+            aria-selected="false"
+            aria-controls="case-svodika"
+            data-case-target="svodika"
+          >
             <span>Кейс 2 / Windows-приложение</span>
             <img class="portfolio-project-mark" src="assets/svodika-logo.png" alt="" />
             <strong>Svodika</strong>
             <p>Запись экрана и звука, локальная расшифровка и итоги встреч в одном приложении.</p>
             <span class="portfolio-project-action">Смотреть кейс</span>
-          </a>
+          </button>
         </div>
       </section>
 
       <section class="editorial-section portfolio-section">
-        <div id="case-work-machine" class="case-block">
+        <div id="case-work-machine" class="case-block" data-case-panel="work-machine">
           <div class="case-head">
             <span class="period">Кейс 1</span>
             <h3>Продуктовая рабочая панель</h3>
@@ -147,7 +161,7 @@
           </div>
         </div>
 
-        <div id="case-svodika" class="case-block case-block-secondary">
+        <div id="case-svodika" class="case-block case-block-secondary" data-case-panel="svodika" hidden>
           <div class="case-head">
             <span class="period">Кейс 2</span>
             <h3>Svodika</h3>
@@ -215,7 +229,7 @@
           </div>
         </div>
 
-        <section id="case-tz" class="case-document" aria-labelledby="case-tz-title">
+        <section id="case-tz" class="case-document" aria-labelledby="case-tz-title" data-case-panel="work-machine">
           <div class="case-doc-cover">
             <div>
               <span class="period">ТЗ к разработке</span>
@@ -597,7 +611,7 @@
           </div>
         </section>
 
-        <section id="case-diagrams" class="case-diagrams" aria-labelledby="case-diagrams-title">
+        <section id="case-diagrams" class="case-diagrams" aria-labelledby="case-diagrams-title" data-case-panel="work-machine">
           <div class="case-doc-cover">
             <div>
               <span class="period">Диаграммы и API</span>
@@ -791,6 +805,6 @@
       <a href="index.html">Назад к резюме</a>
     </footer>
 
-    <script src="script.js?v=13"></script>
+    <script src="script.js?v=14"></script>
   </body>
 </html>

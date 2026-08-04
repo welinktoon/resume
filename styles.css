@@ -2148,17 +2148,36 @@ h2 {
   border: 1px solid var(--line);
   border-radius: var(--radius);
   background: var(--panel);
-  transition: border-color 180ms ease, background 180ms ease, transform 180ms ease;
+  color: var(--ink);
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  appearance: none;
+  transition: border-color 180ms ease, transform 180ms ease;
 }
 
-.portfolio-project-card:hover {
-  border-color: var(--accent);
-  background: var(--soft);
+.portfolio-project-card:hover,
+.portfolio-project-card:focus-visible {
+  border-color: var(--ink);
   transform: translateY(-3px);
 }
 
+.portfolio-project-card:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 3px;
+}
+
+.portfolio-project-card.is-active {
+  border-color: var(--ink);
+  box-shadow: none;
+}
+
+.portfolio-project-card.is-active:focus-visible {
+  outline: none;
+}
+
 .portfolio-project-card > span:first-child {
-  color: var(--accent);
+  color: var(--muted);
   font-size: 12px;
   font-weight: 800;
   line-height: 1.25;
@@ -2191,26 +2210,25 @@ h2 {
   line-height: 1.45;
 }
 
-.portfolio-project-card-accent {
-  border-color: color-mix(in srgb, var(--accent) 44%, var(--line));
-  background: var(--soft);
-}
-
 .portfolio-project-action {
   margin-top: auto;
   color: var(--ink);
   font-size: 14px;
   font-weight: 800;
   text-decoration: underline;
-  text-decoration-color: color-mix(in srgb, var(--accent) 55%, transparent);
+  text-decoration-color: currentColor;
   text-underline-offset: 5px;
 }
 
 .case-block-secondary {
-  margin-top: 96px;
-  padding-top: 84px;
-  border-top: 1px solid var(--line);
+  margin-top: 0;
+  padding-top: 0;
+  border-top: 0;
   scroll-margin-top: 32px;
+}
+
+[data-case-panel][hidden] {
+  display: none !important;
 }
 
 /* Meeting recorder case */
