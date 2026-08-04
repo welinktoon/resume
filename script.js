@@ -91,14 +91,32 @@ const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").match
 const portfolioCaseTabs = Array.from(document.querySelectorAll("[data-case-target]"));
 const portfolioCasePanels = Array.from(document.querySelectorAll("[data-case-panel]"));
 
-function caseFromHash() {
-  return window.location.hash === "#case-svodika" ? "svodika" : "work-machine";
+function caseFromLocation() {
+  const requestedCase = new URLSearchParams(window.location.search).get("case");
+  return requestedCase === "svodika" || window.location.hash === "#case-svodika"
+    ? "svodika"
+    : "work-machine";
 }
 
-function selectPortfolioCase(caseName, { updateHash = false, scroll = false } = {}) {
+function clearCaseLocationToken() {
+  const url = new URL(window.location.href);
+  const hasCaseToken = url.searchParams.has("case") || url.hash === "#case-svodika";
+
+  if (!hasCaseToken) {
+    return;
+  }
+
+  url.searchParams.delete("case");
+  url.hash = "";
+  window.history.replaceState(null, "", `${url.pathname}${url.search}`);
+}
+
+function selectPortfolioCase(caseName) {
   if (!portfolioCaseTabs.length || !portfolioCasePanels.length) {
     return;
   }
+
+  const scrollPosition = { left: window.scrollX, top: window.scrollY };
 
   portfolioCaseTabs.forEach((tab) => {
     const isActive = tab.dataset.caseTarget === caseName;
@@ -111,23 +129,13 @@ function selectPortfolioCase(caseName, { updateHash = false, scroll = false } = 
     panel.hidden = panel.dataset.casePanel !== caseName;
   });
 
-  const targetId = caseName === "svodika" ? "case-svodika" : "case-work-machine";
-
-  if (updateHash) {
-    window.history.pushState(null, "", `#${targetId}`);
-  }
-
-  if (scroll) {
-    document.getElementById(targetId)?.scrollIntoView({
-      block: "start",
-      behavior: reduceMotion ? "auto" : "smooth",
-    });
-  }
+  window.scrollTo({ ...scrollPosition, behavior: "instant" });
 }
 
 portfolioCaseTabs.forEach((tab) => {
   tab.addEventListener("click", () => {
-    selectPortfolioCase(tab.dataset.caseTarget, { updateHash: true, scroll: true });
+    selectPortfolioCase(tab.dataset.caseTarget);
+    clearCaseLocationToken();
   });
 
   tab.addEventListener("keydown", (event) => {
@@ -147,12 +155,14 @@ portfolioCaseTabs.forEach((tab) => {
     const nextTab = portfolioCaseTabs[nextIndex];
 
     nextTab.focus();
-    selectPortfolioCase(nextTab.dataset.caseTarget, { updateHash: true, scroll: true });
+    selectPortfolioCase(nextTab.dataset.caseTarget);
+    clearCaseLocationToken();
   });
 });
 
 if (portfolioCaseTabs.length) {
-  selectPortfolioCase(caseFromHash());
+  selectPortfolioCase(caseFromLocation());
+  clearCaseLocationToken();
 }
 
 if (!reduceMotion && "IntersectionObserver" in window) {
@@ -266,6 +276,12 @@ window.addEventListener("load", () => {
 });
 
 window.addEventListener("hashchange", () => {
-  selectPortfolioCase(caseFromHash());
+  selectPortfolioCase(caseFromLocation());
+
+  if (window.location.hash === "#case-svodika") {
+    clearCaseLocationToken();
+    return;
+  }
+
   window.setTimeout(alignHashTarget, 0);
 });
