@@ -2179,7 +2179,6 @@ h2 {
   margin: 18px 0 -8px;
   border-radius: 14px;
   object-fit: contain;
-  box-shadow: 0 10px 26px rgba(20, 103, 224, 0.2);
 }
 
 .portfolio-project-card:has(.portfolio-project-mark) strong {
@@ -2205,6 +2204,13 @@ h2 {
   text-decoration: underline;
   text-decoration-color: color-mix(in srgb, var(--accent) 55%, transparent);
   text-underline-offset: 5px;
+}
+
+.case-block-secondary {
+  margin-top: 96px;
+  padding-top: 84px;
+  border-top: 1px solid var(--line);
+  scroll-margin-top: 32px;
 }
 
 /* Meeting recorder case */
@@ -2239,7 +2245,6 @@ h2 {
   flex: 0 0 auto;
   border-radius: 28%;
   object-fit: contain;
-  box-shadow: 0 18px 46px rgba(20, 103, 224, 0.24);
 }
 
 .recorder-hero .svodika-title-lockup h1 {
@@ -2624,7 +2629,6 @@ h2 {
 .svodika-logo-stage img {
   width: min(100%, 340px);
   height: auto;
-  filter: drop-shadow(0 24px 36px rgba(20, 103, 224, 0.22));
 }
 
 .svodika-logo-stage figcaption {
