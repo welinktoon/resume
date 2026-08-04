@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="ru" data-theme="air">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Svodika — проект в портфолио</title>
+    <meta
+      name="description"
+      content="Svodika — Windows-приложение для записи экрана и звука, локальной расшифровки и подготовки итогов встреч."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="icon" href="assets/favicon.svg?v=1" type="image/svg+xml" />
+    <link rel="stylesheet" href="styles.css?v=40" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="Кольцова Адриана">
+        <span>АК</span>
+      </a>
+
+      <p class="header-role">Middle системный аналитик</p>
+
+      <nav class="nav" aria-label="Навигация">
+        <a href="portfolio.html">портфолио</a>
+        <a href="index.html">резюме</a>
+      </nav>
+    </header>
+
+    <main id="top" class="portfolio-main recorder-main">
+      <section class="recorder-hero" aria-labelledby="recorder-title">
+        <div class="recorder-hero-copy">
+          <span class="period">Кейс 2 / Windows-приложение</span>
+          <div class="svodika-title-lockup">
+            <img src="assets/svodika-logo.png" alt="" />
+            <h1 id="recorder-title">Svodika</h1>
+          </div>
+          <p class="recorder-lead">
+            Записывает экран, системный звук и микрофон, локально расшифровывает
+            встречу и помогает превратить разговор в понятные итоги и задачи.
+          </p>
+
+          <p class="project-status">
+            <span aria-hidden="true"></span>
+            Актуальная версия — 1.0.15 · исходный код открыт · Windows 10/11
+          </p>
+
+          <div class="project-actions">
+            <a
+              class="project-button project-button-primary"
+              href="https://github.com/welinktoon/svodika"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Открыть GitHub
+              <svg class="project-button-icon" viewBox="0 0 20 20" aria-hidden="true">
+                <path d="M7 13 13 7M8 7h5v5" />
+              </svg>
+            </a>
+            <a
+              class="project-button"
+              href="https://github.com/welinktoon/svodika/releases/latest"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Скачать для Windows
+            </a>
+          </div>
+
+          <div class="case-tags" aria-label="Технологии и возможности">
+            <span>Python + Qt</span>
+            <span>faster-whisper</span>
+            <span>CPU / NVIDIA</span>
+            <span>local-first</span>
+            <span>MIT</span>
+          </div>
+        </div>
+
+        <figure class="recorder-hero-visual">
+          <button class="case-zoom recorder-hero-zoom" type="button" aria-label="Увеличить скриншот Svodika">
+            <img
+              src="assets/svodika-main.png"
+              alt="Главное окно Svodika со списком встреч и кнопкой записи"
+            />
+          </button>
+          <figcaption>Актуальный интерфейс Svodika: библиотека встреч и управление записью.</figcaption>
+        </figure>
+      </section>
+
+      <section class="recorder-section" aria-labelledby="recorder-purpose">
+        <div class="section-title recorder-section-title">
+          <span class="period">Что это за продукт</span>
+          <h2 id="recorder-purpose">Встреча остаётся у вас — от записи до итогов</h2>
+        </div>
+
+        <div class="case-points">
+          <article>
+            <h3>Один процесс</h3>
+            <p>Экран, системный звук, микрофон, текст и история собраны в одном рабочем сценарии.</p>
+          </article>
+          <article>
+            <h3>Локальная основа</h3>
+            <p>Whisper-модели работают на компьютере; запись не нужно отправлять во внешний сервис.</p>
+          </article>
+          <article>
+            <h3>Готовый результат</h3>
+            <p>Сохранённую расшифровку можно превратить в краткие итоги, решения, риски и список задач.</p>
+          </article>
+        </div>
+
+        <div class="recorder-feature-rail" aria-label="Ключевые возможности">
+          <article>
+            <strong>Экран + звук</strong>
+            <p>Запись встречи в MP4 вместе с микрофоном и системным аудио.</p>
+          </article>
+          <article>
+            <strong>Whisper локально</strong>
+            <p>Модели на устройстве и явный выбор Auto, NVIDIA GPU или CPU.</p>
+          </article>
+          <article>
+            <strong>Архив встреч</strong>
+            <p>Поиск, воспроизведение, переименование, удаление и повторная обработка.</p>
+          </article>
+          <article>
+            <strong>Умные итоги</strong>
+            <p>Необязательная обработка через OpenAI, OpenRouter или Codex CLI.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="recorder-section" aria-labelledby="recorder-flow-title">
+        <div class="section-title recorder-section-title">
+          <span class="period">Основной сценарий</span>
+          <h2 id="recorder-flow-title">От кнопки записи до структурированной сводки</h2>
+        </div>
+
+        <ol class="recorder-flow">
+          <li>
+            <span>01</span>
+            <strong>Записать</strong>
+            <p>Выбрать микрофон и при необходимости добавить экран с системным звуком.</p>
+          </li>
+          <li>
+            <span>02</span>
+            <strong>Расшифровать</strong>
+            <p>Обработать запись локальной моделью faster-whisper на CPU или NVIDIA.</p>
+          </li>
+          <li>
+            <span>03</span>
+            <strong>Сохранить</strong>
+            <p>Получить встречу с датой, медиа, исходным текстом и историей изменений.</p>
+          </li>
+          <li>
+            <span>04</span>
+            <strong>Свести</strong>
+            <p>Подготовить краткий или полный итог с решениями, рисками и ответственными.</p>
+          </li>
+        </ol>
+      </section>
+
+      <section class="recorder-section svodika-product-section" aria-labelledby="recorder-interface-title">
+        <div class="svodika-product-copy">
+          <span class="period">Интерфейс</span>
+          <h2 id="recorder-interface-title">Спокойное рабочее пространство вместо набора утилит</h2>
+          <p>
+            Слева — основные разделы, в центре — библиотека встреч, справа — запись,
+            воспроизведение, расшифровка и результат. Светлая и тёмная темы помогают
+            встроить приложение в повседневную работу.
+          </p>
+          <ul class="svodika-feature-list">
+            <li>глобальные горячие клавиши и системный трей;</li>
+            <li>импорт существующих аудиофайлов;</li>
+            <li>проверка обновлений и SHA-256 установщика;</li>
+            <li>автоматический безопасный переход с GPU на CPU.</li>
+          </ul>
+        </div>
+
+        <figure class="svodika-logo-stage">
+          <img src="assets/svodika-logo.png" alt="Логотип Svodika" />
+          <figcaption>Svodika — локальная память о встречах.</figcaption>
+        </figure>
+      </section>
+
+      <section class="recorder-section recorder-details" aria-labelledby="recorder-details-title">
+        <div class="section-title recorder-section-title">
+          <span class="period">Детали реализации</span>
+          <h2 id="recorder-details-title">Продукт, который можно установить и обновлять</h2>
+        </div>
+
+        <div class="recorder-detail-grid">
+          <article>
+            <h3>Поставка</h3>
+            <ul>
+              <li>установщик для Windows без прав администратора;</li>
+              <li>релизы собираются через GitHub Actions;</li>
+              <li>встроенная проверка новых стабильных версий.</li>
+            </ul>
+          </article>
+          <article>
+            <h3>Данные</h3>
+            <p>
+              Записи, настройки и локальная база хранятся в
+              <code>%LOCALAPPDATA%\Svodika</code> и сохраняются при обычном обновлении.
+            </p>
+          </article>
+          <article>
+            <h3>Стек</h3>
+            <p>
+              Python, PyQt6, faster-whisper, FFmpeg, SQLite и отдельный слой интеграций
+              для необязательной облачной обработки текста.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="recorder-cta" aria-labelledby="recorder-cta-title">
+        <div>
+          <span class="period">Открытый проект</span>
+          <h2 id="recorder-cta-title">Исходный код, документация и сборки — на GitHub</h2>
+        </div>
+        <div class="project-actions">
+          <a
+            class="project-button project-button-primary"
+            href="https://github.com/welinktoon/svodika"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Репозиторий Svodika
+          </a>
+          <a class="project-button" href="portfolio.html">Все проекты</a>
+        </div>
+      </section>
+    </main>
+
+    <div class="image-lightbox" id="image-lightbox" aria-hidden="true">
+      <button class="lightbox-close" type="button" aria-label="Закрыть увеличенное изображение">Закрыть</button>
+      <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" alt="" />
+      <div class="lightbox-diagram" hidden></div>
+    </div>
+
+    <footer class="site-footer">
+      <span>Кольцова Адриана</span>
+      <a href="portfolio.html">Назад к портфолио</a>
+    </footer>
+
+    <script src="script.js?v=13"></script>
+  </body>
+</html>

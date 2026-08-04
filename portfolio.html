@@ -6,13 +6,13 @@
     <title>Портфолио - Кольцова Адриана</title>
     <meta
       name="description"
-      content="Портфолио: кейс продуктовой рабочей панели с Yandex Tracker, Google Calendar, источниками данных и статусами подключений."
+      content="Портфолио Кольцовой Адрианы: продуктовая рабочая панель и Windows-приложение для записи и локальной расшифровки встреч."
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
     <link rel="icon" href="assets/favicon.svg?v=1" type="image/svg+xml" />
-    <link rel="stylesheet" href="styles.css?v=38" />
+    <link rel="stylesheet" href="styles.css?v=40" />
   </head>
   <body>
     <header class="site-header">
@@ -28,6 +28,34 @@
     </header>
 
     <main id="top" class="portfolio-main">
+      <section class="portfolio-overview" aria-labelledby="portfolio-title">
+        <div class="portfolio-overview-copy">
+          <span class="period">Избранные проекты</span>
+          <h1 id="portfolio-title">Портфолио</h1>
+          <p>
+            Продуктовые и технические кейсы: от требований и интеграций до рабочего
+            интерфейса и локальной обработки данных.
+          </p>
+        </div>
+
+        <div class="portfolio-projects" aria-label="Проекты портфолио">
+          <a class="portfolio-project-card" href="#case-work-machine">
+            <span>Кейс 1 / Веб-продукт</span>
+            <strong>Продуктовая рабочая панель</strong>
+            <p>Задачи, встречи, источники данных и сигналы риска в одном интерфейсе.</p>
+            <span class="portfolio-project-action">Смотреть кейс</span>
+          </a>
+
+          <a class="portfolio-project-card portfolio-project-card-accent" href="svodika.html">
+            <span>Кейс 2 / Windows-приложение</span>
+            <img class="portfolio-project-mark" src="assets/svodika-logo.png" alt="" />
+            <strong>Svodika</strong>
+            <p>Запись экрана и звука, локальная расшифровка и итоги встреч в одном приложении.</p>
+            <span class="portfolio-project-action">Открыть страницу</span>
+          </a>
+        </div>
+      </section>
+
       <section class="editorial-section portfolio-section">
         <div id="case-work-machine" class="case-block">
           <div class="case-head">

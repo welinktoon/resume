@@ -2102,6 +2102,712 @@ h2 {
   }
 }
 
+/* Portfolio index */
+.portfolio-overview {
+  display: grid;
+  grid-template-columns: minmax(340px, 0.86fr) minmax(0, 1.14fr);
+  gap: 56px;
+  align-items: end;
+  padding: 54px 0 64px;
+  border-bottom: 1px solid var(--line);
+}
+
+.portfolio-overview-copy {
+  max-width: 520px;
+}
+
+.portfolio-overview-copy h1 {
+  margin: 8px 0 16px;
+  font-size: clamp(48px, 4.4vw, 64px);
+  font-weight: 800;
+  line-height: 0.98;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.portfolio-overview-copy p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+.portfolio-projects {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.portfolio-project-card {
+  display: flex;
+  min-height: 252px;
+  min-width: 0;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 24px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--panel);
+  transition: border-color 180ms ease, background 180ms ease, transform 180ms ease;
+}
+
+.portfolio-project-card:hover {
+  border-color: var(--accent);
+  background: var(--soft);
+  transform: translateY(-3px);
+}
+
+.portfolio-project-card > span:first-child {
+  color: var(--accent);
+  font-size: 12px;
+  font-weight: 800;
+  line-height: 1.25;
+  text-transform: uppercase;
+}
+
+.portfolio-project-card strong {
+  display: block;
+  margin: 22px 0 12px;
+  font-size: clamp(24px, 2.4vw, 34px);
+  line-height: 1.04;
+  text-transform: uppercase;
+}
+
+.portfolio-project-mark {
+  width: 52px;
+  height: 52px;
+  margin: 18px 0 -8px;
+  border-radius: 14px;
+  object-fit: contain;
+  box-shadow: 0 10px 26px rgba(20, 103, 224, 0.2);
+}
+
+.portfolio-project-card:has(.portfolio-project-mark) strong {
+  margin-top: 18px;
+}
+
+.portfolio-project-card p {
+  margin: 0 0 24px;
+  color: var(--muted);
+  line-height: 1.45;
+}
+
+.portfolio-project-card-accent {
+  border-color: color-mix(in srgb, var(--accent) 44%, var(--line));
+  background: var(--soft);
+}
+
+.portfolio-project-action {
+  margin-top: auto;
+  color: var(--ink);
+  font-size: 14px;
+  font-weight: 800;
+  text-decoration: underline;
+  text-decoration-color: color-mix(in srgb, var(--accent) 55%, transparent);
+  text-underline-offset: 5px;
+}
+
+/* Meeting recorder case */
+.recorder-main {
+  overflow: clip;
+}
+
+.recorder-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.08fr) minmax(380px, 0.72fr);
+  gap: clamp(38px, 6vw, 88px);
+  align-items: center;
+  min-height: calc(100vh - 122px);
+  padding: 48px 0 72px;
+  border-bottom: 1px solid var(--line);
+}
+
+.recorder-hero-copy {
+  min-width: 0;
+}
+
+.svodika-title-lockup {
+  display: flex;
+  align-items: center;
+  gap: clamp(16px, 2vw, 26px);
+  margin: 12px 0 22px;
+}
+
+.svodika-title-lockup img {
+  width: clamp(72px, 8vw, 112px);
+  height: clamp(72px, 8vw, 112px);
+  flex: 0 0 auto;
+  border-radius: 28%;
+  object-fit: contain;
+  box-shadow: 0 18px 46px rgba(20, 103, 224, 0.24);
+}
+
+.recorder-hero .svodika-title-lockup h1 {
+  margin: 0;
+}
+
+.recorder-hero h1 {
+  max-width: 780px;
+  margin: 12px 0 22px;
+  font-size: clamp(54px, 7.2vw, 94px);
+  font-weight: 800;
+  line-height: 0.92;
+  letter-spacing: -0.025em;
+  text-transform: uppercase;
+  text-wrap: balance;
+}
+
+.recorder-lead {
+  max-width: 720px;
+  margin: 0;
+  color: var(--muted);
+  font-size: clamp(20px, 2vw, 27px);
+  line-height: 1.4;
+}
+
+.project-status {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  max-width: 620px;
+  margin: 28px 0 0;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.project-status span {
+  width: 9px;
+  height: 9px;
+  flex: 0 0 auto;
+  margin-top: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--accent) 13%, transparent);
+}
+
+.project-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 28px;
+}
+
+.project-button {
+  display: inline-flex;
+  min-height: 50px;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 12px 18px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--panel);
+  color: var(--ink);
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 800;
+  line-height: 1.2;
+  transition: border-color 180ms ease, background 180ms ease, color 180ms ease, transform 180ms ease;
+}
+
+.project-button:hover {
+  border-color: var(--accent);
+  background: var(--soft);
+  transform: translateY(-2px);
+}
+
+.project-button-primary {
+  border-color: var(--ink);
+  background: var(--ink);
+  color: var(--bg);
+}
+
+.project-button-primary:hover {
+  border-color: var(--accent);
+  background: var(--accent);
+  color: #ffffff;
+}
+
+.project-button-icon {
+  width: 18px;
+  height: 18px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.recorder-hero .case-tags {
+  margin-top: 22px;
+}
+
+.recorder-hero-visual {
+  min-width: 0;
+  margin: 0;
+}
+
+.recorder-hero-zoom {
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  padding: 18px;
+  border: 1px solid var(--line);
+  background: var(--panel);
+}
+
+.recorder-hero-zoom img {
+  width: 100%;
+  max-height: min(66vh, 650px);
+  aspect-ratio: auto;
+  object-fit: contain;
+  border: 1px solid #3a3b3e;
+  border-radius: 5px;
+  background: #1c1d1f;
+}
+
+.recorder-hero-visual figcaption {
+  margin-top: 10px;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+.recorder-section {
+  padding: 88px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.recorder-section-title {
+  max-width: 920px;
+  margin-bottom: 34px;
+}
+
+.recorder-section-title h2,
+.recorder-cta h2 {
+  margin: 10px 0 0;
+  font-size: clamp(38px, 5vw, 66px);
+  font-weight: 800;
+  line-height: 1.02;
+  letter-spacing: -0.018em;
+  text-transform: uppercase;
+  text-wrap: balance;
+}
+
+.recorder-section .case-points h3 {
+  margin: 0 0 10px;
+  font-size: 20px;
+  line-height: 1.1;
+}
+
+.recorder-section .case-points p {
+  margin: 0;
+}
+
+.recorder-feature-rail {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1px;
+  overflow: hidden;
+  margin-top: 24px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--line);
+}
+
+.recorder-feature-rail article {
+  min-width: 0;
+  padding: 22px;
+  background: var(--soft);
+}
+
+.recorder-feature-rail strong {
+  display: block;
+  margin-bottom: 9px;
+  font-size: 21px;
+  line-height: 1.12;
+}
+
+.recorder-feature-rail p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.45;
+}
+
+.recorder-flow {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1px;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--line);
+  list-style: none;
+  counter-reset: none;
+}
+
+.recorder-flow li {
+  position: relative;
+  min-width: 0;
+  min-height: 240px;
+  padding: 24px;
+  background: var(--panel);
+}
+
+.recorder-flow li > span {
+  display: block;
+  margin-bottom: 48px;
+  color: var(--accent);
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.recorder-flow strong {
+  display: block;
+  margin-bottom: 12px;
+  font-size: 25px;
+  line-height: 1.08;
+}
+
+.recorder-flow p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.45;
+}
+
+.recorder-screens {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.recorder-screen-zoom,
+.recorder-overlay-zoom {
+  overflow: hidden;
+  padding: 16px;
+  border: 1px solid var(--line);
+  background: var(--panel);
+}
+
+.recorder-screen-zoom img {
+  width: 100%;
+  aspect-ratio: 720 / 560;
+  object-fit: contain;
+  border: 1px solid #34363a;
+  border-radius: 5px;
+  background: #1c1d1f;
+}
+
+.recorder-overlay-zoom {
+  display: grid;
+  min-height: 360px;
+  place-items: center;
+}
+
+.recorder-overlay-zoom img {
+  width: min(100%, 900px);
+  height: auto;
+  aspect-ratio: auto;
+  object-fit: contain;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+}
+
+.recorder-detail-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--line);
+}
+
+.recorder-detail-grid article {
+  min-width: 0;
+  padding: 26px;
+  background: var(--panel);
+}
+
+.recorder-detail-grid h3 {
+  margin: 0 0 16px;
+  font-size: 22px;
+  line-height: 1.12;
+}
+
+.recorder-detail-grid p,
+.recorder-detail-grid ul {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.recorder-detail-grid ul {
+  padding-left: 20px;
+}
+
+.recorder-detail-grid code {
+  display: inline;
+  color: var(--ink);
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+  font-size: 0.88em;
+  overflow-wrap: anywhere;
+}
+
+.svodika-product-section {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(320px, 0.8fr);
+  gap: clamp(48px, 8vw, 112px);
+  align-items: center;
+}
+
+.svodika-product-copy h2 {
+  max-width: 900px;
+  margin: 10px 0 24px;
+  font-size: clamp(38px, 5vw, 66px);
+  font-weight: 800;
+  line-height: 1.02;
+  letter-spacing: -0.018em;
+  text-transform: uppercase;
+  text-wrap: balance;
+}
+
+.svodika-product-copy > p {
+  max-width: 760px;
+  margin: 0;
+  color: var(--muted);
+  font-size: 18px;
+  line-height: 1.65;
+}
+
+.svodika-feature-list {
+  display: grid;
+  gap: 12px;
+  margin: 30px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.svodika-feature-list li {
+  position: relative;
+  padding: 14px 0 14px 30px;
+  border-top: 1px solid var(--line);
+  line-height: 1.45;
+}
+
+.svodika-feature-list li::before {
+  position: absolute;
+  top: 19px;
+  left: 2px;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--accent);
+  content: "";
+}
+
+.svodika-logo-stage {
+  display: grid;
+  min-height: 480px;
+  place-items: center;
+  margin: 0;
+  padding: 48px;
+  border: 1px solid var(--line);
+  background: linear-gradient(150deg, var(--soft), var(--panel));
+}
+
+.svodika-logo-stage img {
+  width: min(100%, 340px);
+  height: auto;
+  filter: drop-shadow(0 24px 36px rgba(20, 103, 224, 0.22));
+}
+
+.svodika-logo-stage figcaption {
+  align-self: end;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.4;
+  text-align: center;
+}
+
+.recorder-cta {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 40px;
+  align-items: end;
+  padding: 88px 0 104px;
+}
+
+.recorder-cta > div:first-child {
+  max-width: 860px;
+}
+
+.recorder-cta .project-actions {
+  justify-content: flex-end;
+}
+
+@media (max-width: 1040px) {
+  .portfolio-overview {
+    grid-template-columns: 1fr;
+    gap: 34px;
+  }
+
+  .portfolio-overview-copy {
+    max-width: 760px;
+  }
+
+  .recorder-hero {
+    grid-template-columns: minmax(0, 1fr) minmax(310px, 0.65fr);
+    gap: 38px;
+  }
+
+  .recorder-feature-rail,
+  .recorder-flow {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .recorder-detail-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .recorder-detail-grid article:first-child {
+    grid-row: span 2;
+  }
+}
+
+@media (max-width: 820px) {
+  .portfolio-projects,
+  .recorder-hero,
+  .recorder-screens,
+  .recorder-cta,
+  .svodika-product-section {
+    grid-template-columns: 1fr;
+  }
+
+  .recorder-hero {
+    min-height: auto;
+    padding-top: 64px;
+  }
+
+  .recorder-hero-visual {
+    width: min(100%, 540px);
+  }
+
+  .recorder-hero-zoom img {
+    max-height: none;
+  }
+
+  .recorder-cta .project-actions {
+    justify-content: flex-start;
+  }
+
+  .svodika-logo-stage {
+    min-height: 360px;
+  }
+}
+
+@media (max-width: 620px) {
+  .portfolio-overview {
+    gap: 28px;
+    padding: 48px 0 58px;
+  }
+
+  .portfolio-overview-copy h1 {
+    font-size: 42px;
+  }
+
+  .portfolio-projects,
+  .recorder-feature-rail,
+  .recorder-flow,
+  .recorder-detail-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .portfolio-project-card {
+    min-height: 224px;
+    padding: 20px;
+  }
+
+  .recorder-hero {
+    padding: 46px 0 58px;
+  }
+
+  .recorder-hero h1 {
+    font-size: clamp(43px, 14vw, 58px);
+    line-height: 0.96;
+  }
+
+  .svodika-title-lockup {
+    align-items: flex-start;
+  }
+
+  .svodika-title-lockup img {
+    width: 64px;
+    height: 64px;
+  }
+
+  .recorder-lead {
+    font-size: 18px;
+  }
+
+  .project-actions,
+  .project-button {
+    width: 100%;
+  }
+
+  .recorder-hero-zoom,
+  .recorder-screen-zoom,
+  .recorder-overlay-zoom {
+    padding: 10px;
+  }
+
+  .recorder-section {
+    padding: 64px 0;
+  }
+
+  .recorder-section-title h2,
+  .recorder-cta h2 {
+    font-size: 34px;
+  }
+
+  .recorder-feature-rail article,
+  .recorder-flow li,
+  .recorder-detail-grid article {
+    padding: 20px;
+  }
+
+  .recorder-flow li {
+    min-height: 190px;
+  }
+
+  .recorder-flow li > span {
+    margin-bottom: 28px;
+  }
+
+  .recorder-detail-grid article:first-child {
+    grid-row: auto;
+  }
+
+  .recorder-overlay-zoom {
+    min-height: 230px;
+  }
+
+  .recorder-cta {
+    gap: 28px;
+    padding: 64px 0 78px;
+  }
+
+  .svodika-logo-stage {
+    min-height: 300px;
+    padding: 30px;
+  }
+}
+
 @media (max-width: 620px) {
   :root {
     --section-y: 58px;
