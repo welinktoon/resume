@@ -12,7 +12,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
     <link rel="icon" href="assets/favicon.svg?v=1" type="image/svg+xml" />
-    <link rel="stylesheet" href="styles.css?v=43" />
+    <link rel="stylesheet" href="styles.css?v=44" />
   </head>
   <body>
     <header class="site-header">
@@ -62,7 +62,6 @@
             data-case-target="svodika"
           >
             <span>Кейс 2 / Windows-приложение</span>
-            <img class="portfolio-project-mark" src="assets/svodika-logo.png" alt="" />
             <strong>Svodika</strong>
             <p>Запись экрана и звука, локальная расшифровка и итоги встреч в одном приложении.</p>
             <span class="portfolio-project-action">Смотреть кейс</span>
@@ -211,9 +210,49 @@
             </article>
             <article>
               <strong>автообновление</strong>
-              <p>релизы проверяются в GitHub с контролем SHA-256 установщика</p>
+              <p>приложение само сообщает о новой стабильной версии</p>
             </article>
           </div>
+
+          <section class="svodika-extras" aria-labelledby="svodika-extras-title">
+            <div class="svodika-extras-head">
+              <span>Ещё внутри</span>
+              <h4 id="svodika-extras-title">Мелочи, которые делают запись удобнее</h4>
+              <p>Не только «записать и расшифровать», а полноценный рабочий инструмент на каждый день.</p>
+            </div>
+            <div class="svodika-extras-grid">
+              <article>
+                <span>01</span>
+                <strong>Горячие клавиши</strong>
+                <p>Старт и остановка записи без возвращения в окно приложения.</p>
+              </article>
+              <article>
+                <span>02</span>
+                <strong>Системный трей</strong>
+                <p>Svodika остаётся под рукой и не занимает место среди рабочих окон.</p>
+              </article>
+              <article>
+                <span>03</span>
+                <strong>Черновик на ходу</strong>
+                <p>Текст встречи начинает появляться ещё во время записи.</p>
+              </article>
+              <article>
+                <span>04</span>
+                <strong>Импорт аудио</strong>
+                <p>Можно расшифровать уже существующую запись, а не только новую встречу.</p>
+              </article>
+              <article>
+                <span>05</span>
+                <strong>Свои модели</strong>
+                <p>Выбор и загрузка локальных моделей Whisper под скорость и качество.</p>
+              </article>
+              <article>
+                <span>06</span>
+                <strong>Умные итоги</strong>
+                <p>Опциональная обработка через OpenAI, OpenRouter или Codex CLI.</p>
+              </article>
+            </div>
+          </section>
 
           <div class="case-artifacts" aria-label="Ссылки проекта Svodika">
             <a class="case-artifact" href="https://github.com/welinktoon/svodika" target="_blank" rel="noreferrer">
@@ -224,7 +263,7 @@
             <a class="case-artifact" href="https://github.com/welinktoon/svodika/releases/latest" target="_blank" rel="noreferrer">
               <span>Сборка / Windows</span>
               <strong>Скачать последнюю версию</strong>
-              <p>Готовый установщик Svodika для Windows 10/11 и контрольная сумма SHA-256.</p>
+              <p>Готовый установщик Svodika для Windows 10/11, права администратора не требуются.</p>
             </a>
           </div>
         </div>
