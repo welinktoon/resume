@@ -3257,9 +3257,8 @@ h2 {
   .site-header .nav a {
     min-height: 42px;
     padding: 0 10px;
-    border: 1px solid var(--line);
-    border-radius: var(--radius);
-    background: var(--panel);
+    border: 0;
+    background: transparent;
     color: var(--ink);
     font-size: 13px;
     font-weight: 700;
