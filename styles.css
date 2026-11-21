@@ -1827,6 +1827,14 @@ h2 {
   padding-left: 20px;
 }
 
+.job-summary > p {
+  margin: 0 0 12px;
+}
+
+.job-summary li::marker {
+  content: "-  ";
+}
+
 .job li + li {
   margin-top: 10px;
 }
