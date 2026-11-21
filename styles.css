@@ -3259,9 +3259,9 @@ h2 {
     padding: 0 10px;
     border: 0;
     background: transparent;
-    color: var(--ink);
+    color: var(--muted);
     font-size: 13px;
-    font-weight: 700;
+    font-weight: 400;
   }
 
   .hero {
